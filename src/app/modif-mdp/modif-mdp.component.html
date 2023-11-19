@@ -1,0 +1,11 @@
+<div class="container">
+    <form class="form" #passwordForm="ngForm" novalidate [formGroup]="formAdmin">
+      <p class="title">Modifier le mot de passe</p>
+      <input placeholder="Nom d'utilisateur" class="username input" type="text" name="login" ngModel required formControlName="login" autocomplete="log">
+      <input placeholder="Mot de passe actuel" class="password input" type="password" name="motpasse" ngModel required formControlName="motpasse" autocomplete="mdp1">
+      <input placeholder="Nouveau mot de passe" class="password input" type="password" name="newMotpasse" ngModel required formControlName="newMotpasse" autocomplete="mdp2">
+      <button class="btn" type="button" (click)="  authentif()">Modifier le mot de passe</button>
+      <hr>
+    </form>
+  </div>
+  

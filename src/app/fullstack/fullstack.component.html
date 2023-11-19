@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           overflow-x: hidden;
+           height: 100vh;
+           font-family: 'Urbanist', sans-serif;
+           position: relative;
+         }
+     
+         body::before {
+           content: "";
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           background: url('assets/images/bg.jpg') center/cover; /* Set the background image */
+           filter: blur(5px); /* Adjust the blur amount as needed */
+           z-index: -1; /* Place the overlay behind other content */
+         }
+     
+     
+     :root {
+         --current-color1: #ECEAED;
+         --current-color2: #404457;
+     }
+     
+       </style>
+</head>
+<body>
+    <h1>les activites</h1>
+    <!-- <ul>
+        <li *ngFor="let a of lesactivites">
+            {{a.titre}}
+          <app-activitee [active]="a"></app-activitee> 
+        </li>
+    </ul> -->
+   <div class="container" >
+    <div *ngFor="let a of lesactivites;index as i;first as f">
+        <input type="radio" name="slider" class="d-none" [id]="'s' + (i + 1)" [checked]="f" >
+        <div class="cards" >
+            
+            <label [for]="'s' + (i + 1)" id="slide{{i + 1}}">
+            <!-- <app-activitee [active]="a"></app-activitee>  -->
+            </label>
+        </div>
+    </div>
+
+         <!-- <input type="radio" name="slider" class="d-none" id="s1" checked>
+        <input type="radio" name="slider" class="d-none" id="s2">
+        <input type="radio" name="slider" class="d-none" id="s3">
+        <input type="radio" name="slider" class="d-none" id="s4">
+        <input type="radio" name="slider" class="d-none" id="s5">  -->
+
+        <!-- <input type="radio" name="slider" class="d-none" id="s{{i}}"> -->
+        
+   </div> 
+
+   <!-- <div class="container">
+    <input type="radio" name="slider" class="d-none" [id]="'s' + (i + 1)" *ngFor="let a of lesactivites; let i = index">
+    <div class="cards">
+      <label [for]="'s' + (i + 1)" id="slide{{i + 1}}">
+        <app-activitee [active]="a"></app-activitee>
+      </label>
+    </div>
+  </div> -->
+  
+
+
+
+   
+
+   <!-- <div class="container">
+    <input type="radio" name="slider" class="d-none" id="s{{i+1}}" *ngFor="let a of lesactivites; let i = index">
+    
+    <div class="cards" *ngFor="let a of lesactivites; let i = index">
+      <input type="radio" name="slider" class="d-none" [id]="'s' + (i + 1)">
+      
+      <label [for]="'s' + (i + 1)">
+        <div class="card" id="slide{{i + 1}}">
+            <app-activitee [active]="a"></app-activitee> 
+          <div class="infos">
+            <span class="name">{{ a.titre }}</span>
+            <span class="lorem">{{ a.nbpart }}</span>
+          </div>
+        </div>
+      </label>
+    </div>
+  </div> -->
+  
+    
+</body>
+</html>
+
+
+
+
+
+

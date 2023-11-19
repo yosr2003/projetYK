@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+     <style>
+          body {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           overflow-x: hidden;
+           height: 100vh;
+           margin: 0;
+           font-family: 'Urbanist', sans-serif;
+           position: relative;
+           box-sizing: border-box;
+    
+         }
+         /* .row {margin: 0 -5px;}
+         .row:after {
+  content: "";
+  display: table;
+  clear: both;} */
+
+         body::before {
+           content: "";
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+          
+           filter: blur(5px); /* Adjust the blur amount as needed */
+            /* Place the overlay behind other content */
+         }
+      
+         
+    </style> 
+</head>
+<body style="background-image: url('assets/images/bg.jpg');top: 0;left: 0;right: 0;bottom: 0;">
+    
+    <!-- <img src="assets/images/bgprojet.jpg" alt="" style="height: 100%;width: 100%;z-index: -1;"> -->
+    <span class="star">&#10022;</span>
+    <header>
+        <div class="container">
+           <img src="assets/images/logowhite.png" alt="" style="width: 300px;height:120px;z-index: 99;">
+           <div class="wrap">
+            <div class="search" style="width:300px ;">
+               <div class="searchTerm"><input type="text" class="searchTerm1" placeholder="What are you looking for?"></div>
+               <button type="submit" class="searchButton">
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+            
+           <div class="line" ></div><div class="line2" ></div> <div class="line3" ></div> <div class="line4" ></div> <div class="line5" ></div>
+        </div>
+         <app-hamburger class="hamburger" (click)="toggleMenu()" ></app-hamburger >
+        </div>
+        
+    </header>
+  
+    <!-- <div  class="row">
+        <div class="container cards" *ngFor="let a of lesactivites;index as i;first as f" [ngClass]="{'cards-hidden': isMenuOpen}" > -->
+            <!-- <input type="radio" name="slider" class="d-none" id="s{{i}}" [checked]="f">
+            <div class="cards">
+             <label for="s{{i}}" id="slide{{i}}"> -->
+             <!-- <app-uneactivite [active]="a" [index]="i" *ngIf="a.categorie==categorie" ></app-uneactivite>  -->
+             <!-- <app-uneacitivitetest [active]="a" [index]="i" *ngIf="a.categorie==categorie" ></app-uneacitivitetest> -->
+             <!-- <app-uneacitivitetest  [active]="a" [index]="i" *ngIf="a.categorie==categorie"></app-uneacitivitetest> <br> <br> -->
+             <!-- </label>
+            </div>  -->
+        <!-- </div>
+    </div> -->
+    <div class="row" *ngFor="let a of lesactivites;index as i;first as f" [ngClass]="{'cards-hidden': isMenuOpen}" style="margin-right: 20px;margin-top: 100px;" >
+        <app-uneactivite [active]="a" [index]="i" *ngIf="a.categorie==categorie" ></app-uneactivite> <br> <br>
+   </div>
+    
+    <!-- <main style="padding-left:2%;"> 
+        <section class="banner" >
+         <div class="container">
+            <h3>coordination nationale</h3>
+            <h1><span>Welcome</span> to our family</h1>
+            <h3>Rotaract solution for all your needs</h3>
+           <a  class="button">About us</a> 
+         </div>
+        </section>
+    </main> -->
+        <!-- <h1>activities</h1> -->
+
+    <!-- <div class="cutout">
+        <h2>Cutout Section</h2>
+        <p>This is the part of the page you want to cut out.</p>
+    </div> -->
+</body>
+</html>

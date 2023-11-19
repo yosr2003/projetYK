@@ -1,0 +1,302 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+/* .star{
+   
+    color: white;
+    font-size: 1.5rem;
+    
+    margin-top: -1px;
+} */
+main{
+    color: white;
+}
+h1{
+    font-size: 72px;
+    margin-bottom: 28px;
+    
+}
+h1 span{
+    color: #ff9fdb;
+}
+h3{
+    font-size: 36px;
+    margin-bottom: 25px;  
+    font-weight: 400;
+}
+.button{
+    display: inline-block;
+    color: white;
+    background-color: #ff9fdb;
+    padding:12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: flex-start; /* Align content to the far left */
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    
+    
+}
+header{
+    position: fixed;
+    top:0 ;
+    left: 0;
+    right: 0;
+    height: 120px; /* Adjust the height of the header */
+     overflow: hidden;
+     display: inline;
+    
+}
+
+
+
+
+header .container{
+    padding-top: 0px;
+    padding-bottom: 32px;
+    padding-right: 32px;
+    display: flex;
+    justify-content:space-between;
+    /* background-color:blueviolet; */
+    max-height: 120px;
+    /* max-width: 160px;
+    padding-left:50px ;
+    padding-right:50px ; */
+    margin: 0 auto;
+    max-height: 120px;
+    position: relative;
+}
+.line {
+    width: 100vh;
+    height: 1px; /* Adjust the thickness of the line */
+    background-color: white; /* Adjust the color of the line */
+    position: absolute;
+    bottom: 0;
+    z-index: 99;
+}
+.line2 {
+    width: 100vh;
+    height:1px; /* Adjust the thickness of the line */
+    background-color: white; /* Adjust the color of the line */
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 99;
+}
+.line3 {
+    width: 100vh;
+    height:1px; /* Adjust the thickness of the line */
+    background-color: white; /* Adjust the color of the line */
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 99;
+}
+.line4{
+    width: 100vh;
+    height: 1px; /* Adjust the thickness of the line */
+    background-color: white; /* Adjust the color of the line */
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-160%);
+    z-index: 99;
+}
+.line5{
+    width: 100vh;
+    height: 1px; /* Adjust the thickness of the line */
+    background-color: white; /* Adjust the color of the line */
+    position: absolute;
+    bottom: 0;
+    transform: translateX(50%);
+    z-index: 99;
+}
+.hamburger {
+    /* width: 40px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 1000px;
+    bottom: 0; */
+    margin-top: 2%;
+    margin-right: 30px;
+}
+/* .cutout {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+    background-color: #eee;
+    padding: 20px;
+    box-sizing: border-box;
+} */
+.star {
+    z-index: 2;
+    color: white; /* Adjust the color of the star */
+    font-size: 2.5rem; /* Adjust the size of the star */
+    position: absolute;
+    bottom: 81%; /* Adjust the distance from the line */
+    left: 50%; /* Center the star horizontally */
+     /* Adjust to center the star perfectly */
+}
+
+
+main section .banner{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-position: top right;
+    background-size: cover;
+}
+
+
+
+.search {
+    flex: 1;
+    width: 100%;
+    /* position: relative; */
+    display: flex;
+    margin-top: 8%;
+    margin-right: 200px;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+  
+  .searchTerm {
+    
+    width: 100%;
+    border: 1px solid whitesmoke;
+    border-right: none;
+    /* padding: 5px;
+    height: 20px; */
+    border-radius: 20px 0 0 20px;
+  
+  }
+  .searchTerm1{
+    padding: 5%;
+    outline: none;
+    border: none;
+    color:white;
+    background-color: transparent;
+  }
+  
+  .searchTerm:focus{
+    color: whitesmoke;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 44px;
+    border: 1px solid whitesmoke;
+    background: transparent;
+    text-align: center;
+    color: transparent;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  /* .wrap{
+    width: 700px;
+    height: 10px;
+  } */
+  
+  /*Resize the wrap to see the search bar change!*/
+  /* .wrap{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+
+  .card-container {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+  }
+  
+  .card .front-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1)
+  }
+  
+  .card .front-content p {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 1;
+    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1)
+  }
+  
+  .card .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+    color: #e8e8e8;
+    padding: 20px;
+    line-height: 1.5;
+    border-radius: 5px;
+    pointer-events: none;
+    transform: translateY(96%);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .card .content .heading {
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .card:hover .content {
+    transform: translateY(0);
+  }
+  
+  .card:hover .front-content {
+    transform: translateY(-30%);
+  }
+  
+  .card:hover .front-content p {
+    opacity: 0;
+  }
+  
+  

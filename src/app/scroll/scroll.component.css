@@ -1,0 +1,73 @@
+body {
+	background-color: #1a1a1a; /* Changer la couleur de fond en bleu foncé */
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--cards: 4;
+	--cardHeight: 200px; /* Ajuster la hauteur de la carte */
+	--cardTopPadding: 1.5em; /* Ajuster le padding en haut de la carte */
+	--cardMargin: 4vw;
+}
+
+.container {
+	width: 70%;
+	margin: 0 auto;
+}
+
+#cards {
+	list-style: none;
+	padding-left: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(var(--cards), var(--cardHeight));
+	gap: var(--cardMargin);
+	padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+	margin-bottom: var(--cardMargin);
+}
+
+#card1 {
+	--index: 1;
+}
+#card2 {
+	--index: 2;
+}
+#card3 {
+	--index: 3;
+}
+#card4 {
+	--index: 4;
+}
+
+.card {
+	position: sticky;
+	top: 0;
+	padding-top: calc(var(--index) * var(--cardTopPadding));
+	background-color: rgba(0, 0, 255, 0.5); /* Ajouter une couverture transparente en bleu foncé */
+}
+
+#card1 .card-body {
+	background-color: #52B2CF;
+}
+#card2 .card-body {
+	background-color: #E5A36F;
+}
+
+.card-body {
+	box-sizing: border-box;
+	padding: 15px;
+	border-radius: 20px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+	height: var(--cardHeight);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.5s;
+}
+
+h2 {
+	font-size: 1.5em;
+	color: white; /* Changer la couleur du texte en blanc */
+}

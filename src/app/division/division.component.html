@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empty Division with Size</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      background: url('assets/images/intro-bg.jpg') no-repeat center center fixed;
+      background-color: #12002F;
+      background-size: cover;
+      /*filter: blur(5px); Adjust the blur amount as needed */
+      /*-webkit-filter: blur(5px); For older versions of Safari */
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .empty-div {
+      width: 500px; /* Adjust the width as needed */
+      height: 500px; /* Adjust the height as needed */
+      background-color: rgba(5,5,5, 0.5); /* Background color with alpha (transparency) */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="empty-div">
+    <!-- This is an empty division with a larger size -->
+  </div>
+</body>
+
+</html>
