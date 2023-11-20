@@ -12,9 +12,10 @@
   }
   
   .search-box {
-    max-width: var(--search-max-width);
-    min-width: var(--search-min-width);
+    /* max-width: var(--search-max-width);
+    min-width: var(--search-min-width); */
     height: 35px;
+    width: 350px;
     border: 1px solid var(--input-border-color);
     border-radius: var(--border-radius);
     padding: 5px 15px;
@@ -114,4 +115,9 @@
     position: absolute;
     top: 7px;
     right: 15px;
+  }
+
+  .hid{
+    display: none;
+    
   }

@@ -19,7 +19,8 @@
             <a href="/index.html" id="logo"><h1><span>TSF</span> CHARITY</h1></a>
         </div>
         <!-- ------------------ -->
-        <app-searchdate></app-searchdate>
+     
+      
               
                 <!-- <button class="close-btn" type="reset"> -->
                     <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"> -->
@@ -33,29 +34,9 @@
                
             <!-- </label>
         </form> -->
-           <div style="background-color: rgb(59, 54, 54); width: 400px; height: 200px; margin-top: 0; margin-left: 0; " [ngClass]="{'hid':show}" >
-        
-            <table *ngIf="lesActivites.length > 0" class="result-table">
-                <thead>
-                  <tr>
-                    <th>Titre</th>
-                    <th>Date</th>
-                    <!-- Ajoutez d'autres colonnes au besoin -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let activite of lesActivites">
-                    <td>{{ activite.titre }}</td>
-                    <td>{{ activite.dateDebut | date: 'short' }}</td>
-                    <!-- Ajoutez d'autres colonnes au besoin -->
-                  </tr>
-                </tbody>
-              </table>
-              <div *ngIf="lesActivites.length === 0" class="no-results">
-                Aucun résultat trouvé.
-              </div>
-        <!-- </div> -->
-     </div>
+           <!-- <div style="background-color: rgb(59, 54, 54); width: 400px; height: 200px; margin-top: 5; margin-left: 5; "  > -->
+            <app-searchdate style="margin-top: 1.5%; margin-right: 5%; " ></app-searchdate>
+          <!-- </div> -->
 
      <!-- <div style="background-color: rgb(111, 34, 34); width: 100px; height: 100px; margin-top: 60px; "  ></div> -->
 

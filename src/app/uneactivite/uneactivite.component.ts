@@ -7,6 +7,6 @@ import { Activite } from '../classes/activite';
   styleUrls: ['./uneactivite.component.css']
 })
 export class UneactiviteComponent {
-  @Input()active:Activite | undefined;
-  @Input()index!: number;
+  @Input() active!:Activite;
+  @Input() index!: number;
 }

@@ -39,8 +39,10 @@
          
     </style> 
 </head>
+
+
 <body style="background-image: url('assets/images/bg.jpg');top: 0;left: 0;right: 0;bottom: 0;">
-    
+   
     <!-- <img src="assets/images/bgprojet.jpg" alt="" style="height: 100%;width: 100%;z-index: -1;"> -->
     <span class="star">&#10022;</span>
     <header>
@@ -73,9 +75,10 @@
             </div>  -->
         <!-- </div>
     </div> -->
-    <div class="row" *ngFor="let activite of lesactivites;index as i;first as f" [ngClass]="{'cards-hidden': isMenuOpen}" style="margin-right: 20px;margin-top: 100px;" >
-        <app-uneactivite [active]="activite" [index]="i" *ngIf="activite.categorie==categorie" ></app-uneactivite> <br> <br>
-   </div>
+    <div class="row" *ngFor="let a of FilteredActivites; index as i; first as f" [ngClass]="{'cards-hidden': isMenuOpen}" style="margin-right: 20px; margin-top: 100px;">
+        <app-uneactivite [active]="a" [index]="i"></app-uneactivite>
+        <br> <br>
+    </div>
     
     <!-- <main style="padding-left:2%;"> 
         <section class="banner" >

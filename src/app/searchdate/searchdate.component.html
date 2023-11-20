@@ -17,19 +17,21 @@
     </div>
   </div>
   
-  <div>
-    <table *ngIf="lesActivites.length > 0" class="result-table">
+  <div style="background-color: rgb(5, 5, 5,0.5); width: 350px; height: 150px; margin-top: 5; margin-left: 5; border-radius: 20px; color: white; font-size:small;" [ngClass]="{'hid':show}" >
+    <table *ngIf="lesActivites.length > 0" class="result-table"  [ngClass]="{'hid':show}">
       <thead>
         <tr>
           <th>Titre</th>
           <th>Date</th>
+          <th>info</th>
           <!-- Ajoutez d'autres colonnes au besoin -->
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let activite of lesActivites">
           <td>{{ activite.titre }}</td>
-          <td>{{ activite.dateDebut | date: 'short' }}</td>
+          <td>{{ activite.dateDebut | date:"dd-MM-yyyy" }}</td>
+          <td><a [routerLink]="['/activities', 'filterbydate', activite.dateDebut]">details</a></td>
           <!-- Ajoutez d'autres colonnes au besoin -->
         </tr>
       </tbody>

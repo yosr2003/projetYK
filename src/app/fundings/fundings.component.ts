@@ -20,12 +20,12 @@ export class FundingsComponent implements OnInit {
     this.lesActivites=this.act.getActivite();
 
   }
-  chercherpardate(){
+  // chercherpardate(){
 // this.route.navigate(['/activities']);  
 // this.show=!this.show;
-alert('bvcxw');
-this.lesActivites = this.act.rechercherActiviteParDate(this.dateRecherche);alert(JSON.stringify(this.lesActivites));
-  }
+// alert('bvcxw');
+// this.lesActivites = this.act.rechercherActiviteParDate(this.dateRecherche);alert(JSON.stringify(this.lesActivites));
+//   }
 
 
 }

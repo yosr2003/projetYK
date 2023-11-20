@@ -3,12 +3,17 @@
 import { Injectable } from '@angular/core';
 import { Activite } from '../classes/activite';
 import { Personne } from '../classes/personne';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
+  URL = 'http://localhost:3000/activities/'
+  
+  constructor(private http:HttpClient){}
 
   activites: Activite[] = [
     new Activite("RotaKids", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)]),
@@ -54,10 +59,11 @@ export class ActivitiesService {
 
  
 
-  public rechercherActiviteParDate(dateString: string) {
-    const dateRecherche = new Date(dateString);
-    return this.activites.filter(
-      act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
-    );
+  public rechercherActiviteParDate(dateString: string):Observable<Activite[]> {
+    return this.http.get<Activite[]>(URL+'?dateDebut='+dateString)
+    // const dateRecherche = new Date(dateString);
+    // return this.activites.filter(
+    //   act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
+    // );
   }
 }

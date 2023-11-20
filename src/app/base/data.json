@@ -1,0 +1,73 @@
+{
+	"activites":[
+    {
+        "titre": "RotaKids",
+        "nbPart": 10,
+        "dateDebut": "2023-01-01",
+        "dateFin": "2023-01-01",
+        "categorie": "action sociale",
+        "capacite": 20,
+        "participants": [
+            {
+                "name": "mohamed",
+                "id": 563235
+            }
+        ]
+    },
+    {
+        "titre": "sortie marsa",
+        "nbPart": 20,
+        "dateDebut": "2023-02-01",
+        "dateFin": "2023-01-01",
+        "categorie": "Sortie",
+        "capacite": 20,
+        "participants": [
+            {
+                "name": "mohamed",
+                "id": 563235
+            }
+        ]
+    },
+    {
+        "titre": "collecte fourniture scolaire",
+        "nbPart": 13,
+        "dateDebut": "2023-03-01",
+        "dateFin": "2023-01-01",
+        "categorie": "collecte",
+        "capacite": 20,
+        "participants": [
+            {
+                "name": "mohamed",
+                "id": 563235
+            }
+        ]
+    },
+    {
+        "titre": "non-violence",
+        "nbPart": 13,
+        "dateDebut": "2023-03-01",
+        "dateFin": "2023-01-01",
+        "categorie": "evenement",
+        "capacite": 20,
+        "participants": [
+            {
+                "name": "mohamed",
+                "id": 563235
+            }
+        ]
+    },
+    {
+        "titre": "non-hvgi",
+        "nbPart": 13,
+        "dateDebut": "2023-03-01",
+        "dateFin": "2023-01-01",
+        "categorie": "evenement",
+        "capacite": 20,
+        "participants": [
+            {
+                "name": "mohamed",
+                "id": 563235
+            }
+        ]
+    }
+]}

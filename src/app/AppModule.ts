@@ -26,6 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategorieComponent } from './categorie/categorie.component';
 import { ListactiviteComponent } from './listactivite/listactivite.component';
 import { UneactiviteComponent } from './uneactivite/uneactivite.component';
+import { filter } from 'rxjs';
+import { FilterbytitleComponent } from './filterbytitle/filterbytitle.component';
+import { FilterbydateComponent } from './filterbydate/filterbydate.component';
 
 @NgModule({
   declarations: [
@@ -49,9 +52,10 @@ import { UneactiviteComponent } from './uneactivite/uneactivite.component';
     ModifMdpComponent,
   CategorieComponent,
   ListactiviteComponent,
-  UneactiviteComponent
+  UneactiviteComponent,
 
-    
+    FilterbytitleComponent,
+    FilterbydateComponent
    
 
  
