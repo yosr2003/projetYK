@@ -29,6 +29,7 @@ import { UneactiviteComponent } from './uneactivite/uneactivite.component';
 import { filter } from 'rxjs';
 import { FilterbytitleComponent } from './filterbytitle/filterbytitle.component';
 import { FilterbydateComponent } from './filterbydate/filterbydate.component';
+import { SelectedactivityComponent } from './selectedactivity/selectedactivity.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { FilterbydateComponent } from './filterbydate/filterbydate.component';
   UneactiviteComponent,
 
     FilterbytitleComponent,
-    FilterbydateComponent
+    FilterbydateComponent,
+    SelectedactivityComponent,
+    AboutusComponent
    
 
  

@@ -15,13 +15,22 @@ export class FilterbydateComponent {
   datecherche:string | undefined;
   lesactivites:Activite[]=[];
   lesCategories:string[]=[];
+  activiteDetails: any;
   constructor(private act:ActivitiesService,private activatedRoute:ActivatedRoute){}
   ngOnInit(): void {
-    this.datecherche = this.activatedRoute.snapshot.params['datecherche'];
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.activiteDetails = this.act.getActiviteById(id);
     this.lesactivites=this.act.getActivite();
     this.lesCategories=this.act.getcategories();
     
-    // 
+    this.act.getActiviteById(id).subscribe({
+     next: (activite) => {
+        this.activiteDetails = activite;
+      }
+      
+  });
+
+
     this.act.rechercherActiviteParDate(this.datecherche!).subscribe({
       next:(data)=>{
         this.FilteredActivites = data

@@ -1,8 +1,26 @@
 .line {
-    width: 30vh;
-    height: 1px; /* Adjust the thickness of the line */
-    background-color: rgb(24, 21, 21); /* Adjust the color of the line */
+    width: 34vh;
+    height: 0.9px; /* Adjust the thickness of the line */
+    background-color: rgb(123, 123, 123); /* Adjust the color of the line */
     position: absolute;
+    
  
     z-index: 99;
 }
+.custom-btn {
+    font-size: small;
+    align-self: center;
+    width: 180px; /* Ajustez la largeur en fonction de vos besoins */
+    height: 30px; /* Ajustez la hauteur en fonction de vos besoins */
+    margin: 0; /* Ajustez la marge en fonction de vos besoins */
+    padding: 5px 10px; /* Ajustez le rembourrage en fonction de vos besoins */
+    border: 1px solid #dc3545; /* Couleur de la bordure */
+    background-color: #dc3545; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+  }
+  
+  .custom-btn:hover {
+    background-color: #c82333; /* Couleur de fond au survol */
+    border: 1px solid #bd2130; /* Couleur de la bordure au survol */
+  }
+  

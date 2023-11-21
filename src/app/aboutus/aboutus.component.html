@@ -3,11 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
+     <style>
+          body {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           overflow-x: hidden;
+           height: 100vh;
+           margin: 0;
+           font-family: 'Urbanist', sans-serif;
+           position: relative;
+           box-sizing: border-box;
+    
+         }
+         /* .row {margin: 0 -5px;}
+         .row:after {
+  content: "";
+  display: table;
+  clear: both;} */
+
+         body::before {
+           content: "";
+           position: absolute;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+          
+           filter: blur(5px); /* Adjust the blur amount as needed */
+            /* Place the overlay behind other content */
+         }
+         .aboutus {
+            position: absolute;
+            width: 700px;
+            height: 600px;
+            background-color: rgba(5, 5, 5, 0.5); /* Couleur noire avec une opacité de 0.7 pour le fond transparent */
+            backdrop-filter: blur(5px); /* Applique le flou au contenu derrière le div */
+            border-radius: 10px; /* Bord arrondi, ajustez selon vos besoins */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Couleur du texte */
+            left: 50%; /* Centrer horizontalement */
+            top: 60%; /* Centrer verticalement */
+            transform: translate(-50%, -50%); /* Ajuster le centrage */
+        }
+      
+         
+    </style> 
 </head>
 <body style="background-image: url('assets/images/bg.jpg');top: 0;left: 0;right: 0;bottom: 0;">
     
-    <!-- <img src="assets/images/bgprojet.jpg" alt="" style="height: 100%;width: 100%;z-index: -1;"> -->
+
     <span class="star">&#10022;</span>
     <header>
         <div class="container">
@@ -22,26 +71,11 @@
             
            <div class="line" ></div><div class="line2" ></div> <div class="line3" ></div> <div class="line4" ></div> <div class="line5" ></div>
         </div>
-         <!-- <app-hamburger class="hamburger"></app-hamburger > -->
-         <app-hamburger class="hamburger"></app-hamburger>
+         <app-hamburger class="hamburger" (click)="toggleMenu()" ></app-hamburger >
         </div>
-        
+       
     </header>
-
-    
-    <!-- <main style="padding-left:2%;"> 
-        <section class="banner" >
-         <div class="container">
-            <h3>coordination nationale</h3>
-            <h1><span>Welcome</span> to our family</h1>
-            <h3>Rotaract solution for all your needs</h3>
-           <a  class="button">About us</a> 
-         </div>
-        </section>
-    </main> -->
-    <!-- <div class="cutout">
-        <h2>Cutout Section</h2>
-        <p>This is the part of the page you want to cut out.</p>
-    </div> -->
+ <div class="aboutus"></div>
+  
 </body>
 </html>

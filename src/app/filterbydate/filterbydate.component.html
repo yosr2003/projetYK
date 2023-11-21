@@ -76,7 +76,7 @@
         <!-- </div>
     </div> -->
     <div class="row" *ngFor="let a of FilteredActivites; index as i; first as f" [ngClass]="{'cards-hidden': isMenuOpen}" style="margin-right: 20px; margin-top: 100px;">
-        <app-uneactivite [active]="a" [index]="i"></app-uneactivite>
+        <app-uneactivite [active]="a" [index]="i" ></app-uneactivite>
         <br> <br>
     </div>
     

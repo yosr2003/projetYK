@@ -7,6 +7,9 @@ import { Activite } from '../classes/activite';
   styleUrls: ['./uneactivite.component.css']
 })
 export class UneactiviteComponent {
+info(id: number) {
+
+}
   @Input() active!:Activite;
   @Input() index!: number;
 }

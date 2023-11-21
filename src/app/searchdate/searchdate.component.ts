@@ -37,4 +37,10 @@ export class SearchdateComponent implements OnInit {
     // alert(JSON.stringify(this.lesActivites));
   }
 
+
+
+
+
+  
+
 }

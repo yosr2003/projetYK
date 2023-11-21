@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Activite } from '../classes/activite';
 import { Personne } from '../classes/personne';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 
 @Injectable({
@@ -16,11 +16,13 @@ export class ActivitiesService {
   constructor(private http:HttpClient){}
 
   activites: Activite[] = [
-    new Activite("RotaKids", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)]),
-    new Activite("sortie marsa", 20, new Date("2023-02-01"), new Date("2023-01-01"),'Sortie', 20, [new Personne('mohamed',563235)]),
-    new Activite("collecte fourniture scolaire", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'collecte', 20, [new Personne('mohamed',563235)]),
-    new Activite("non-violence", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)]),
-    new Activite("non-hvgi", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)])
+    new Activite(1,"Action 'RotaKids'", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)],"assets/images/rotakidspeiture.jpg","assets/images/rotakidsjouerenfants.jpg","","",""),
+    new Activite(2,"journée a la  marsa", 20, new Date("2023-02-01"), new Date("2023-01-01"),'Sortie', 20, [new Personne('mohamed',563235)],"assets/images/sortie.jpg","assets/images/sortie2.jpg","","",""),
+    new Activite(3,"collecte fourniture scolaire", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'collecte', 20, [new Personne('mohamed',563235)],"assets/images/appel.jpg","assets/images/listecollecte.jpg","","",""),
+    new Activite(4,"Event 'Rac-meziena'", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/rakmezienaffiche.jpg","assets/images/rakmezienalogo.jpg","","",""),
+    new Activite(5,"Event 'non-violence' ", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/logononviolence.jpg","assets/images/rakmezienaffiche.jpg","","",""),
+
+    
   ];
 
   listmembres:Personne[]=[
@@ -59,11 +61,35 @@ export class ActivitiesService {
 
  
 
-  public rechercherActiviteParDate(dateString: string):Observable<Activite[]> {
-    return this.http.get<Activite[]>(URL+'?dateDebut='+dateString)
-    // const dateRecherche = new Date(dateString);
-    // return this.activites.filter(
-    //   act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
-    // );
-  }
+//  public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
+//   // Use encodeURIComponent to handle special characters in the date string
+//   const encodedDateString = encodeURIComponent(dateString);
+//   return this.http.get<Activite[]>(this.URL + '?dateDebut=' + encodedDateString);
+//   // If you also want to filter activities in-memory, uncomment the code below
+//   // const dateRecherche = new Date(dateString);
+//   // return this.activites.filter(
+//   //   act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
+//   // );
+// }
+
+
+public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
+  const dateRecherche = new Date(dateString);
+
+
+  const filteredActivities = this.activites.filter(
+    act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
+  );
+
+ 
+  return of(filteredActivities);
 }
+
+public getActiviteById(id: number): Observable<Activite | undefined> {
+  const url = `${this.URL}/${id}`;
+
+  return this.http.get<Activite>(url);
+}
+
+}
+

@@ -74,7 +74,7 @@
         <!-- </div>
     </div> -->
     <div class="row" *ngFor="let activite of lesactivites;index as i;first as f" [ngClass]="{'cards-hidden': isMenuOpen}" style="margin-right: 20px;margin-top: 100px;" >
-        <app-uneactivite [active]="activite" [index]="i" *ngIf="activite.categorie==categorie" ></app-uneactivite> <br> <br>
+        <app-uneactivite [active]="activite" [index]="i" *ngIf="activite.categorie==categori" ></app-uneactivite> <br> <br>
    </div>
     
     <!-- <main style="padding-left:2%;"> 

@@ -10,13 +10,13 @@ import { ActivitiesService } from '../serv/activities.service';
 })
 export class ListactiviteComponent {
   isMenuOpen: boolean = false;
-  categorie!:string;
+  categori!:string;
   lesactivites:Activite[] = [];
   lesCategories:string[] = [];
   
   constructor(private act:ActivitiesService,private activatedRoute:ActivatedRoute){}
   ngOnInit(): void {
-    this.categorie=this.activatedRoute.snapshot.params['categorie'];
+    this.categori=this.activatedRoute.snapshot.params['categorie'];
     this.lesactivites=this.act.getActivite();
     this.lesCategories=this.act.getcategories();
  
