@@ -39,7 +39,8 @@
             position: absolute;
             width: 700px;
             height: 600px;
-            background-color: rgba(5, 5, 5, 0.5); /* Couleur noire avec une opacité de 0.7 pour le fond transparent */
+            background-image: url(assets/images/tuniact.jpg);
+            background-size: cover; /* Couleur noire avec une opacité de 0.7 pour le fond transparent */
             backdrop-filter: blur(5px); /* Applique le flou au contenu derrière le div */
             border-radius: 10px; /* Bord arrondi, ajustez selon vos besoins */
             display: flex;
@@ -47,14 +48,34 @@
             justify-content: center;
             color: white; /* Couleur du texte */
             left: 50%; /* Centrer horizontalement */
-            top: 60%; /* Centrer verticalement */
+            top: 50%; /* Centrer verticalement */
             transform: translate(-50%, -50%); /* Ajuster le centrage */
+        }
+      
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .club-container {
+            color: white;
+            margin-bottom: 20%;
+        }
+
+        h2 {
+            color: rgb(193, 130, 130);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .rotaract-info {
+            color: rgb(193, 130, 130);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: x-large;
         }
       
          
     </style> 
 </head>
-<body style="background-image: url('assets/images/bg.jpg');top: 0;left: 0;right: 0;bottom: 0;">
+<body style="background-image: url('assets/images/tuniact.jpg');top: 0;left: 0;right: 0;bottom: 0;">
     
 
     <span class="star">&#10022;</span>
@@ -75,7 +96,22 @@
         </div>
        
     </header>
- <div class="aboutus"></div>
+   <h1 style="color: rgb(193, 130, 130); margin-right: 20%; margin-bottom: 20%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">who are we ?</h1>
+   <div class="club-container">
+    <h2>Club à but non lucratif :</h2>
+    <p>Notre club regroupe des étudiants et jeunes actifs pour échanger, travailler <br> main dans la main partout dans le monde afin de montrer des actions et de projets <br> plus grands.</p>
+    <p><span class="rotaract-info">10.689 clubs Rotaract</span> dans plus de 180 pays!!!</p>
+    <p><strong>ROTARACT</strong> est fondé <span style="color: rgb(193, 130, 130);">" le 21 novembre 2020 "</span></p>
+</div>
+ <!-- <div class="aboutus">
+  
+ 
+
+<p></p>
+
+
+
+ </div> -->
   
 </body>
 </html>
