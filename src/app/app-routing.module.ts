@@ -9,24 +9,29 @@ import { ListactiviteComponent } from './listactivite/listactivite.component';
 import { FilterbytitleComponent } from './filterbytitle/filterbytitle.component';
 import { FilterbydateComponent } from './filterbydate/filterbydate.component';
 import { ModifMdpComponent } from './modif-mdp/modif-mdp.component';
+import { ListcategoriesComponent } from './listcategories/listcategories.component';
+import { LkolComponent } from './lkol/lkol.component';
 
 
 
 const routes: Routes = [
   {path:'',title:'',component:Accueil2Component,
   children:[
-    {path:'essai',title:'essai',component:EssaiComponent}, 
+    {path:'essai/:categorie',title:'essai',component:EssaiComponent}, 
     {
-      path: 'activities/details/:id',title: 'activities',component: FilterbydateComponent,
+      path: 'activities/:id',title: 'activities',component: FilterbydateComponent,
     },
-    {path:'accueil',title:'accueil',component:FundingsComponent}, 
-    { path: 'activities/filterbydate/:datecherche', title: 'activities', component: FilterbydateComponent },
-    {path:'fullstack',title:'fulls',component:FullstackComponent},
+    {path:'activities/:categorie',title:'Activities',component:ListcategoriesComponent},
+    {path:'recherche/:type/:elmnt',title:'',component:LkolComponent},
+    // {path:'activities/:categorie',title:'Activities',component:ListcategoriesComponent},
+    // {path:'accueil',title:'accueil',component:FundingsComponent}, 
+    // { path: 'activities/filterbydate/:datecherche', title: 'activities', component: FilterbydateComponent },
+    // {path:'fullstack',title:'fulls',component:FullstackComponent},
     {path:'home',title:'home',component:FundingsComponent},
-    {path:'activities/:categorie',title:'activities',component:ListactiviteComponent},
-    {path:'activities/:titre',title:'activities',component:FilterbytitleComponent},
+    // {path:'activities/:categorie',title:'activities',component:ListactiviteComponent},
+    // {path:'activities/:titre',title:'activities',component:FilterbytitleComponent},
    
-    {path:'activities',title:'activities',component:ListactiviteComponent},
+    // {path:'activities',title:'activities',component:ListactiviteComponent},
    
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'**',title:'erreur',component:ErreurComponent},

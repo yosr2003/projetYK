@@ -60,6 +60,13 @@
         </div>
         
     </header>
+    <div  style="display: flex;">
+        <div *ngFor="let a of lesact" [ngClass]="{'cards-hidden': isMenuOpen}" class="row" style="margin-right: 20px;">
+            <app-uneactivite [active]="a"  ></app-uneactivite>
+        </div>
+    </div>
+    <!-- *ngIf="a.categorie==categori" -->
+  
   
     <!-- <div  class="row">
         <div class="container cards" *ngFor="let a of lesactivites;index as i;first as f" [ngClass]="{'cards-hidden': isMenuOpen}" > -->
@@ -73,10 +80,7 @@
             </div>  -->
         <!-- </div>
     </div> -->
-    <div class="row" *ngFor="let activite of lesactivites2;index as i" [ngClass]="{'cards-hidden': isMenuOpen}" style="margin-right: 20px;margin-top: 100px;" >
-        <!-- <app-uneactivite [active]="activite" [index]="i" ></app-uneactivite> <br> <br> -->
-        <!-- <div>{{activite.titre}}</div> -->
-   </div>
+ 
    <!-- <app-uneactivite [active]="Activite2"  ></app-uneactivite> -->
    <!-- *ngIf="activite.categorie==categori"  -->
     <!-- <main style="padding-left:2%;"> 

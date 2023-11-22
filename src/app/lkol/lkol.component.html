@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         overflow-x: hidden;
+         height: 100vh;
+         margin: 0;
+         font-family: 'Urbanist', sans-serif;
+         position: relative;
+         box-sizing: border-box;
+    
+       }
+       /* .row {margin: 0 -5px;}
+       .row:after {
+    content: "";
+    display: table;
+    clear: both;} */
+    
+       body::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+        
+         filter: blur(5px); /* Adjust the blur amount as needed */
+          /* Place the overlay behind other content */
+       }
+    
+       
+    </style>
+</head>
+<body style="background-image: url('assets/images/bg.jpg');top: 0;left: 0;right: 0;bottom: 0;">
+    <span class="star">&#10022;</span>
+    <header>
+      <div class="container">
+         <img src="assets/images/logowhite.png" alt="" style="width: 300px;height:120px;z-index: 99;">
+         <div class="wrap">
+          <div class="search" style="width:300px ;">
+             <div class="searchTerm"><input type="text" class="searchTerm1" placeholder="What are you looking for?"></div>
+             <button type="submit" class="searchButton">
+               <i class="fa fa-search"></i>
+            </button>
+          </div>
+          
+         <div class="line" ></div><div class="line2" ></div> <div class="line3" ></div> <div class="line4" ></div> <div class="line5" ></div>
+      </div>
+       <app-hamburger class="hamburger" (click)="toggleMenu()" ></app-hamburger >
+      </div>
+      
+  </header>  
+
+    <div style="display: flex;">
+    <div *ngFor="let a of lesact" class="row" style="margin-right: 20px;" [ngClass]="{'cards-hidden': isMenuOpen}">
+    <app-uneactivite [active]="a"></app-uneactivite>
+    </div>
+    <div *ngIf="lesact.length === 0" class="no-results">
+        Aucun résultat trouvé.
+      </div>
+</div>
+</body>
+</html>

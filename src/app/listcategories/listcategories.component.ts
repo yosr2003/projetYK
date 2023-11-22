@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Activite } from '../classes/activite';
 
 @Component({
-  selector: 'app-essai',
-  templateUrl: './essai.component.html',
-  styleUrls: ['./essai.component.css']
+  selector: 'app-listcategories',
+  templateUrl: './listcategories.component.html',
+  styleUrls: ['./listcategories.component.css']
 })
-export class EssaiComponent implements OnInit {
+export class ListcategoriesComponent implements OnInit{
   cat:string="";
   isMenuOpen: boolean = false;
   lesact:Activite[]=[];
@@ -25,5 +25,4 @@ export class EssaiComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
-
 }

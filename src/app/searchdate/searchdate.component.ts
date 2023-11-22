@@ -9,8 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./searchdate.component.css']
 })
 export class SearchdateComponent implements OnInit {
-  public lesActivites!: Activite[];
-  AllActivites!: Activite[];
+  lesActivites!: Activite[];
+  type2:string="dateDebut";
+  // AllActivites!: Activite[];
   public titreRecherche: string = '';
   public dateRecherche: string = '';
   public dateDebut:string='';
@@ -18,8 +19,13 @@ export class SearchdateComponent implements OnInit {
   constructor(private activiteService: ActivitiesService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.lesActivites = this.activiteService.getActivite();
-    this.AllActivites = this.activiteService.getActivite();
+    this.activiteService.getActivites().subscribe(
+      data=>{
+        this.lesActivites=data
+      }
+    )
+    // this.lesActivites = this.activiteService.getActivite();
+    // this.AllActivites = this.activiteService.getActivite();
     this.titreRecherche=this.activatedRoute.snapshot.params['titre'];
     this.dateDebut=this.activatedRoute.snapshot.params['datecherche'];
   }
@@ -28,7 +34,7 @@ export class SearchdateComponent implements OnInit {
 
   chercherParDate() {
     this.show=!this.show;
-    this.activiteService.rechercherActiviteParDate(this.dateRecherche).subscribe({
+    this.activiteService.rechercherActiviteParDate2(this.dateRecherche).subscribe({
       next:(data)=>{
         console.log({"date_result":data});
         this.lesActivites = data

@@ -11,13 +11,16 @@
     
     <title>Document</title>
 </head>
-<body>
-    <div class="info">
+<body style="background-color: #F8F9FA;">
+    <div class="info" st>
 
         <div class="logo"><i class="fas fa-book-reader"></i></div>
         <p id="head">{{cat}}</p>
-        <a    class="btn btn-outline-secondary"  [routerLink]="['/activities',cat]">activities</a> <br>
-        <p>We help empower underprivileged children with quality education.</p>
+        
+        <!-- <a    class="btn btn-outline-secondary"  [routerLink]="['/essai',cat]">activities</a> <br> -->
+        <a    class="btn btn-outline-secondary"  [routerLink]="['/recherche',type,cat]">activities</a> <br>
+        <!-- <a    class="btn btn-outline-secondary"  [routerLink]="['/recherche',type2,date]">activities</a> <br> -->
+       
 
     </div>
 </body>

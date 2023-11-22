@@ -10,22 +10,17 @@ import { Activite } from '../classes/activite';
 })
 export class FundingsComponent implements OnInit {
   lesCategories:string[]=[];
-  public lesActivites!: Activite[];
-  lesa:string[]=[];
-  show:boolean=true;
   public dateRecherche: string = '';
   constructor(private act:ActivitiesService,private route:Router){}
   ngOnInit(): void {
-    this.lesCategories=this.act.getcategories();
-    this.lesActivites=this.act.getActivite();
+    this.act.extraireCategorie().subscribe((categories) => {
+      this.lesCategories=categories;
+      
+    });
+ 
 
   }
-  // chercherpardate(){
-// this.route.navigate(['/activities']);  
-// this.show=!this.show;
-// alert('bvcxw');
-// this.lesActivites = this.act.rechercherActiviteParDate(this.dateRecherche);alert(JSON.stringify(this.lesActivites));
-//   }
+
 
 
 }

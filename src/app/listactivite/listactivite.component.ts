@@ -11,14 +11,27 @@ import { ActivitiesService } from '../serv/activities.service';
 export class ListactiviteComponent {
   isMenuOpen: boolean = false;
   categori!:string;
-  lesactivites:Activite[] = [];
-  lesCategories:string[] = [];
+  Activite2!:Activite;
+  // lesactivites:Activite[] = [];
+  lesactivites2:Activite[] = [];
+  
   
   constructor(private act:ActivitiesService,private activatedRoute:ActivatedRoute){}
   ngOnInit(): void {
     this.categori=this.activatedRoute.snapshot.params['categorie'];
-    this.lesactivites=this.act.getActivite();
-    this.lesCategories=this.act.getcategories();
+    // this.lesactivites=this.act.getActivite();
+    
+    this.act.getActivites().subscribe(
+      data=>{
+        this.lesactivites2=data
+      }
+    )
+    this.act.getActiviteById(2).subscribe(
+      data=>{
+        this.Activite2=data
+      }
+    
+     );
  
  }
  toggleMenu() {

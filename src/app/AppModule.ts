@@ -30,6 +30,8 @@ import { filter } from 'rxjs';
 import { FilterbytitleComponent } from './filterbytitle/filterbytitle.component';
 import { FilterbydateComponent } from './filterbydate/filterbydate.component';
 import { SelectedactivityComponent } from './selectedactivity/selectedactivity.component';
+import { ListcategoriesComponent } from './listcategories/listcategories.component';
+import { LkolComponent } from './lkol/lkol.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { SelectedactivityComponent } from './selectedactivity/selectedactivity.c
     FilterbytitleComponent,
     FilterbydateComponent,
     SelectedactivityComponent,
-    AboutusComponent
+    AboutusComponent,
+    ListcategoriesComponent,
+    LkolComponent
    
 
  

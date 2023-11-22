@@ -5,15 +5,51 @@ import { Activite } from '../classes/activite';
 import { Personne } from '../classes/personne';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
-
+const URL='http://localhost:3000/activites';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
-  URL = 'http://localhost:3000/activities/'
+  // URL = 'http://localhost:3000/activities/'
   
   constructor(private http:HttpClient){}
+  getActivites():Observable<Activite[]>{
+    return this.http.get<Activite[]>(URL);
+  }
+  
+  getActiviteById(id: number): Observable<Activite> {
+    return this.http.get<Activite>(`${URL}/${id}`);
+  }
+  
+  extraireCategorie(): Observable<string[]> {
+    return this.getActivites().pipe(
+      map((activites) => {
+        const categoriesSet = new Set<string>();
+        activites.forEach((activite) => {
+          categoriesSet.add(activite.categorie);
+        });
+        return Array.from(categoriesSet);
+      })
+    );
+  
+  }
+  rechercherActiviteParDate2(dateString: string): Observable<Activite[]> {
+    const dateRecherche = new Date(dateString);
+  
+    return this.http.get<Activite[]>(URL).pipe(
+      map((activites) =>
+        activites.filter(
+          (act) => new Date(act.dateDebut).toISOString().includes(dateRecherche.toISOString())
+        )
+      )
+    );
+  }
+  rechercherActiviteParCategorie(categorie: string): Observable<Activite[]> {
+    return this.http.get<Activite[]>(URL).pipe(
+      map((activites) => activites.filter((act) => act.categorie === categorie))
+    );
+  }
 
   activites: Activite[] = [
     new Activite(1,"Action 'RotaKids'", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)],"assets/images/rotakidspeiture.jpg","assets/images/rotakidsjouerenfants.jpg","","",""),
@@ -21,6 +57,7 @@ export class ActivitiesService {
     new Activite(3,"collecte fourniture scolaire", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'collecte', 20, [new Personne('mohamed',563235)],"assets/images/appel.jpg","assets/images/listecollecte.jpg","","",""),
     new Activite(4,"Event 'Rac-meziena'", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/rakmezienaffiche.jpg","assets/images/rakmezienalogo.jpg","","",""),
     new Activite(5,"Event 'non-violence' ", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/logononviolence.jpg","assets/images/rakmezienaffiche.jpg","","",""),
+    
 
     
   ];
@@ -58,7 +95,7 @@ export class ActivitiesService {
   getActivite() {
     return this.activites;
   }
-
+ 
  
 
 //  public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
@@ -85,11 +122,8 @@ public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
   return of(filteredActivities);
 }
 
-public getActiviteById(id: number): Observable<Activite | undefined> {
-  const url = `${this.URL}/${id}`;
 
-  return this.http.get<Activite>(url);
-}
+
 
 }
 
