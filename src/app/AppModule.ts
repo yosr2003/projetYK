@@ -32,6 +32,7 @@ import { FilterbydateComponent } from './filterbydate/filterbydate.component';
 import { SelectedactivityComponent } from './selectedactivity/selectedactivity.component';
 import { ListcategoriesComponent } from './listcategories/listcategories.component';
 import { LkolComponent } from './lkol/lkol.component';
+import { BackoffComponent } from './backoff/backoff.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { LkolComponent } from './lkol/lkol.component';
     SelectedactivityComponent,
     AboutusComponent,
     ListcategoriesComponent,
-    LkolComponent
+    LkolComponent,
+    BackoffComponent
    
 
  
