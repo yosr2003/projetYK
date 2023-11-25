@@ -4,6 +4,7 @@ import { ActivitiesService } from '../serv/activities.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Personne } from '../classes/personne';
 
 @Component({
   selector: 'app-backoff',
@@ -42,10 +43,12 @@ detailIndex: any;
   show: boolean=false;
 
   searchshow:boolean=false;
+  lesmembres!: Personne[];
   constructor(private ActService:ActivitiesService,private fb:FormBuilder,  private route: ActivatedRoute){}
 
 ngOnInit(): void {
  this.ActService.getActivites().subscribe((data: Activite[])=>this.lesActivites=data);
+ this.ActService.getMembers().subscribe((data: Personne[])=>this.lesmembres=data);
  this.ActService.getActivites().subscribe((data: Activite[])=>this.AllActivity=data);
  this.categories$ = this.ActService.getAllCategories();
 

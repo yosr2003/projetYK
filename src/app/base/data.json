@@ -36,7 +36,7 @@
           "id": 2,
           "nom": "yosr",
           "prenom": "amamou",
-          "date naissance": "2003-10-01",
+          "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
         }
@@ -60,7 +60,7 @@
           "id": 2,
           "nom": "yosr",
           "prenom": "amamou",
-          "date naissance": "2003-10-01",
+          "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
         }
@@ -84,7 +84,7 @@
           "id": 2,
           "nom": "yosr",
           "prenom": "amamou",
-          "date naissance": "2003-10-01",
+          "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
         }
@@ -108,9 +108,16 @@
           "id": 2,
           "nom": "yosr",
           "prenom": "amamou",
-          "date naissance": "2003-10-01",
+          "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
+        },
+        {
+          "id": 1,
+          "nom": "",
+          "datenaissance": null,
+          "adresse": "",
+          "email": ""
         }
       ],
       "image1": "assets/images/rakmezienaffiche.jpg",
@@ -132,7 +139,7 @@
       "id": 1,
       "nom": "Mohamed",
       "prenom": "Salah",
-      "date naissance": "2003-01-01",
+      "datenaissance": "2003-01-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"
     },
@@ -140,7 +147,7 @@
       "id": 2,
       "nom": "yosr",
       "prenom": "amamou",
-      "date naissance": "2003-10-01",
+      "datenaissance": "2003-10-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"
     },
@@ -148,7 +155,7 @@
       "id": 3,
       "nom": "khadija",
       "prenom": "chaar",
-      "date naissance": "2003-01-01",
+      "datenaissance": "2003-01-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"
     }

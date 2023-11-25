@@ -34,6 +34,7 @@ import { ListcategoriesComponent } from './listcategories/listcategories.compone
 import { LkolComponent } from './lkol/lkol.component';
 import { BackoffComponent } from './backoff/backoff.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
     LkolComponent,
     BackoffComponent,
    AuthentificationComponent,
-   ServicesComponent
+   ServicesComponent,
+   ProfilComponent
 
  
   ],
