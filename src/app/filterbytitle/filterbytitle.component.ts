@@ -17,8 +17,8 @@ export class FilterbytitleComponent {
   constructor(private act:ActivitiesService,private activatedRoute:ActivatedRoute){}
   ngOnInit(): void {
     this.title = this.activatedRoute.snapshot.params['titre'];
-    this.lesactivites=this.act.getActivite();
-    this.lesCategories=this.act.getcategories();
+    // this.lesactivites=this.act.getActivite();
+    // this.lesCategories=this.act.getcategories();
  
  }
  toggleMenu() {

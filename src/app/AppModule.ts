@@ -33,6 +33,7 @@ import { SelectedactivityComponent } from './selectedactivity/selectedactivity.c
 import { ListcategoriesComponent } from './listcategories/listcategories.component';
 import { LkolComponent } from './lkol/lkol.component';
 import { BackoffComponent } from './backoff/backoff.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 @NgModule({
   declarations: [
@@ -64,8 +65,9 @@ import { BackoffComponent } from './backoff/backoff.component';
     AboutusComponent,
     ListcategoriesComponent,
     LkolComponent,
-    BackoffComponent
-   
+    BackoffComponent,
+   AuthentificationComponent,
+   ServicesComponent
 
  
   ],

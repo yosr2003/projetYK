@@ -51,52 +51,86 @@ export class ActivitiesService {
     );
   }
 
-  activites: Activite[] = [
-    new Activite(1,"Action 'RotaKids'", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)],"assets/images/rotakidspeiture.jpg","assets/images/rotakidsjouerenfants.jpg","","",""),
-    new Activite(2,"journée a la  marsa", 20, new Date("2023-02-01"), new Date("2023-01-01"),'Sortie', 20, [new Personne('mohamed',563235)],"assets/images/sortie.jpg","assets/images/sortie2.jpg","","",""),
-    new Activite(3,"collecte fourniture scolaire", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'collecte', 20, [new Personne('mohamed',563235)],"assets/images/appel.jpg","assets/images/listecollecte.jpg","","",""),
-    new Activite(4,"Event 'Rac-meziena'", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/rakmezienaffiche.jpg","assets/images/rakmezienalogo.jpg","","",""),
-    new Activite(5,"Event 'non-violence' ", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/logononviolence.jpg","assets/images/rakmezienaffiche.jpg","","",""),
+  // activites: Activite[] = [
+  //   new Activite(1,"Action 'RotaKids'", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)],"assets/images/rotakidspeiture.jpg","assets/images/rotakidsjouerenfants.jpg","","",""),
+  //   new Activite(2,"journée a la  marsa", 20, new Date("2023-02-01"), new Date("2023-01-01"),'Sortie', 20, [new Personne('mohamed',563235)],"assets/images/sortie.jpg","assets/images/sortie2.jpg","","",""),
+  //   new Activite(3,"collecte fourniture scolaire", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'collecte', 20, [new Personne('mohamed',563235)],"assets/images/appel.jpg","assets/images/listecollecte.jpg","","",""),
+  //   new Activite(4,"Event 'Rac-meziena'", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/rakmezienaffiche.jpg","assets/images/rakmezienalogo.jpg","","",""),
+  //   new Activite(5,"Event 'non-violence' ", 13, new Date("2023-03-01"), new Date("2023-01-01"), 'evenement', 20, [new Personne('mohamed',563235)],"assets/images/logononviolence.jpg","assets/images/rakmezienaffiche.jpg","","",""),
     
 
     
-  ];
+  // ];
 
-  listmembres:Personne[]=[
-    new Personne('mohammd',7582),
-    new Personne('asma',8888),
-    new Personne('amira',453543),
-    new Personne('salah',45544),
-  ];
-  getMembers(){
-    return this.listmembres;
-  }
+  // listmembres:Personne[]=[
+  //   new Personne('mohammd',7582),
+  //   new Personne('asma',8888),
+  //   new Personne('amira',453543),
+  //   new Personne('salah',45544),
+  // ];
+  // getMembers(){
+  //   return this.listmembres;
+  // }
 
 
-  public addParticipant(nom:string,cin:number,index:number){
-    this.activites[index].participants.push(new Personne(nom,cin));
+  // public addParticipant(nom:string,cin:number,index:number){
+  //   this.activites[index].participants.push(new Personne(nom,cin));
 
-  }
+  // }
 
 
 
   categories:string[]=[];
 
-    getcategories(){ 
-    for(let i=0;i<this. activites.length;i++){
-      if(!(this.categories.includes(this. activites[i].categorie))){
-        this.categories.push(this. activites[i].categorie);
-      }
-    }
-    return this.categories;
+  //   getcategories(){ 
+  //   for(let i=0;i<this. activites.length;i++){
+  //     if(!(this.categories.includes(this. activites[i].categorie))){
+  //       this.categories.push(this. activites[i].categorie);
+  //     }
+  //   }
+  //   return this.categories;
   
-  }
+  // }
 
-  getActivite() {
-    return this.activites;
-  }
+  // getActivite() {
+  //   return this.activites;
+  // }
+
+
  
+  deleteActivite(id:number){
+    return this.http.delete(URL+"/"+ id);
+    }
+  
  
+  
+    addActivite(A:Activite):Observable<Activite>{
+      return this.http.post<Activite>(URL, A);
+      }
+
+ 
+      public getAllCategories(): Observable<string[]> {
+        // Utilisez la méthode getActivites en tant qu'observable et utilisez l'opérateur map de RxJS
+        return this.getActivites().pipe(
+          map((activites: Activite[]) => {
+            // Utilisez le spread operator pour obtenir toutes les catégories uniques
+            return [...new Set(activites.map((act) => act.categorie))];
+          })
+        );
+      }
+    
+      UpdateActivity(activite: Activite): Observable<any> {
+        const url = `${URL}/${activite.id}`;
+        return this.http.put(url, activite);
+      }
+      rechercherActiviteParTitre(titreRecherche: string): Observable<Activite[]> {
+        return this.http.get<Activite[]>(URL).pipe(
+          map((activites) =>
+            activites.filter(
+              (act) => act.titre.toLowerCase().includes(titreRecherche.toLowerCase())
+            )
+          )
+        );}
 
 //  public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
 //   // Use encodeURIComponent to handle special characters in the date string
@@ -110,17 +144,17 @@ export class ActivitiesService {
 // }
 
 
-public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
-  const dateRecherche = new Date(dateString);
+// public rechercherActiviteParDate(dateString: string): Observable<Activite[]> {
+//   const dateRecherche = new Date(dateString);
 
 
-  const filteredActivities = this.activites.filter(
-    act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
-  );
+//   const filteredActivities = this.activites.filter(
+//     act => act.dateDebut.toISOString().includes(dateRecherche.toISOString())
+//   );
 
  
-  return of(filteredActivities);
-}
+//   return of(filteredActivities);
+// }
 
 
 

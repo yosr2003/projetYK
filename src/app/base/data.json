@@ -1,78 +1,156 @@
 {
-	"activites":[
+  "activites": [
     {
-        "id":1,
-        "titre": "RotaKids",
-        "nbPart": 10,
-        "dateDebut": "2023-01-01",
-        "dateFin": "2023-01-01",
-        "categorie": "action sociale",
-        "capacite": 20,
-        "participants": [
-            {
-                "name": "mohamed",
-                "id": 563235
-            }
-        ]
+      "id": 1,
+      "titre": " Action 'RotaKids' ",
+      "nbPart": "100",
+      "dateDebut": "2023-01-02",
+      "dateFin": "2023-01-01",
+      "categorie": "action sociale",
+      "capacite": "20",
+      "lieu": "sokra-chotrana1",
+      "description": "",
+      "image1": "assets/images/rotakidspeiture.jpg",
+      "image2": "assets/images/rotakidsjouerenfants.jpg",
+      "participants": [
+        {
+          "id": 2,
+          "nom": "yosr",
+          "prenom": "amamou",
+          "date naissance": "2003-10-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        }
+      ]
     },
     {
-        "id":2,
-        "titre": "sortie marsa",
-        "nbPart": 20,
-        "dateDebut": "2023-02-01",
-        "dateFin": "2023-01-01",
-        "categorie": "Sortie",
-        "capacite": 20,
-        "participants": [
-            {
-                "name": "mohamed",
-                "id": 563235
-            }
-        ]
+      "id": 2,
+      "titre": "Journée a la  marsa",
+      "nbPart": 20,
+      "dateDebut": "2023-02-01",
+      "dateFin": "2023-01-01",
+      "categorie": "Sortie",
+      "capacite": 20,
+      "participants": [
+        {
+          "id": 2,
+          "nom": "yosr",
+          "prenom": "amamou",
+          "date naissance": "2003-10-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        }
+      ],
+      "image1": "assets/images/sortie.jpg",
+      "image2": "assets/images/sortie2.jpg",
+      "lieu": "sokra-chotrana1",
+      "disponibilite": true,
+      "description": ""
     },
     {
-        "id":3,
-        "titre": "collecte fourniture scolaire",
-        "nbPart": 13,
-        "dateDebut": "2023-03-01",
-        "dateFin": "2023-01-01",
-        "categorie": "collecte",
-        "capacite": 20,
-        "participants": [
-            {
-                "name": "mohamed",
-                "id": 563235
-            }
-        ]
+      "id": 3,
+      "titre": "collecte fourniture scolaire",
+      "nbPart": 13,
+      "dateDebut": "2023-03-01",
+      "dateFin": "2023-01-01",
+      "categorie": "collecte",
+      "capacite": 20,
+      "participants": [
+        {
+          "id": 2,
+          "nom": "yosr",
+          "prenom": "amamou",
+          "date naissance": "2003-10-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        }
+      ],
+      "image1": "assets/images/appel.jpg",
+      "image2": "assets/images/listecollecte.jpg",
+      "lieu": "sokra-chotrana1",
+      "disponibilite": true,
+      "description": ""
     },
     {
-        "id":4,
-        "titre": "non-violence",
-        "nbPart": 13,
-        "dateDebut": "2023-03-01",
-        "dateFin": "2023-01-01",
-        "categorie": "evenement",
-        "capacite": 20,
-        "participants": [
-            {
-                "name": "mohamed",
-                "id": 563235
-            }
-        ]
+      "id": 4,
+      "titre": " Event 'non-violence'",
+      "nbPart": 13,
+      "dateDebut": "2023-03-01",
+      "dateFin": "2023-01-01",
+      "categorie": "evenement",
+      "capacite": 20,
+      "participants": [
+        {
+          "id": 2,
+          "nom": "yosr",
+          "prenom": "amamou",
+          "date naissance": "2003-10-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        }
+      ],
+      "image1": "assets/images/logononviolence.jpg",
+      "image2": "assets/images/violence1.jpg",
+      "lieu": "sokra-chotrana1",
+      "disponibilite": false,
+      "description": ""
     },
     {
-        "id":5,
-        "titre": "non-hvgi",
-        "nbPart": 13,
-        "dateDebut": "2023-03-01",
-        "dateFin": "2023-01-01",
-        "categorie": "evenement",
-        "capacite": 20,
-        "participants": [
-            {
-                "name": "mohamed",
-                "id": 563235
-            }
-        ]
+      "id": 5,
+      "titre": "Event 'Rac Meziena'",
+      "nbPart": 13,
+      "dateDebut": "2023-03-01",
+      "dateFin": "2023-01-01",
+      "categorie": "evenement",
+      "capacite": 20,
+      "participants": [
+        {
+          "id": 2,
+          "nom": "yosr",
+          "prenom": "amamou",
+          "date naissance": "2003-10-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        }
+      ],
+      "image1": "assets/images/rakmezienaffiche.jpg",
+      "image2": "assets/images/rakmezienalogo.jpg",
+      "lieu": "sokra-chotrana1",
+      "disponibilite": true,
+      "description": ""
     }
-]}
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "login": "admin",
+      "password": "pass2"
+    }
+  ],
+  "lesmembres": [
+    {
+      "id": 1,
+      "nom": "Mohamed",
+      "prenom": "Salah",
+      "date naissance": "2003-01-01",
+      "adresse": "sokra",
+      "email": "yosr@yahoo.com"
+    },
+    {
+      "id": 2,
+      "nom": "yosr",
+      "prenom": "amamou",
+      "date naissance": "2003-10-01",
+      "adresse": "sokra",
+      "email": "yosr@yahoo.com"
+    },
+    {
+      "id": 3,
+      "nom": "khadija",
+      "prenom": "chaar",
+      "date naissance": "2003-01-01",
+      "adresse": "sokra",
+      "email": "yosr@yahoo.com"
+    }
+  ]
+}

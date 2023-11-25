@@ -13,7 +13,7 @@ a: Activite|undefined;
 constructor(private act:ActivitiesService){}
   ngOnInit(): void {
     // i: number;
-   this.lesactivites=this.act.getActivite();
+  //  this.lesactivites=this.act.getActivite();
   }
 
 }

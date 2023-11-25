@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class ConnexionComponent implements OnInit {
   formAdmin!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AdminService) {}
+  constructor(private fb: FormBuilder, private authService: AdminService, private router:Router) {}
+ 
   Admins: any; // Variable pour stocker les données du serveur
 
   ngOnInit(): void {
@@ -43,6 +44,8 @@ export class ConnexionComponent implements OnInit {
       next:(isValid)=>{
         if (isValid) {
           alert('Valide');
+          this.router.navigate(['/backoff']); 
+
         } else {
           alert('Invalide');  
         }

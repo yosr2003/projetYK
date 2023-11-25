@@ -17,8 +17,8 @@ export class AboutusComponent {
   constructor(private act:ActivitiesService,private activatedRoute:ActivatedRoute){}
   ngOnInit(): void {
     this.categori=this.activatedRoute.snapshot.params['categorie'];
-    this.lesactivites=this.act.getActivite();
-    this.lesCategories=this.act.getcategories();
+    // this.lesactivites=this.act.getActivite();
+    // this.lesCategories=this.act.getcategories();
  
  }
  toggleMenu() {

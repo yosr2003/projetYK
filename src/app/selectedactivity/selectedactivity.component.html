@@ -33,7 +33,7 @@
 
     <header>
         <div class="logo">
-            <a href="#"><img src="assets/images/logowhite.png" alt="" width="10px" height="100px" ></a>
+            <a href="#"><img src="assets/images/logowhite.png" alt="" width="20px" height="100px" ></a>
         </div>
 
         <nav>
@@ -45,24 +45,25 @@
             </ul>
         </nav>
     </header>
-
+<div *ngIf="activity" >
+    
     <div class="content">
-        <h2>Blabla Coffee</h2>
-        <p>Would you like to start the day with a nice coffee?</p>
+        <h1 style="color: aliceblue; font-size: 60px;">{{activity.titre}}</h1> <br>
+        <p>Welcome to our Beloved Family '<strong style="color: rgb(214, 118, 204);">Rotaract CLUB</strong>' </p>
     </div>
 
     <div class="menu" id="menu">
         <div class="menu-header">
-            <h3>Menu</h3>
-            <h4>Blabla Coffee Menu</h4>
+            <h3></h3>
+            <h4></h4>
         </div>
-        <div class="menu-content">
+        <div class="menu-content" >
             <div class="hot-coffees">
                 <div class="hot-coffees-image">
                     <img src="" alt="">
                 </div>
                 <div class="hot-coffees-body">
-                 <img src="assets/images/event.jpg" alt="" height="300px" width="700px">
+                 <img [src]="activity.image1" alt="" height="300px" width="700px">
                     
                 </div>
             </div>
@@ -71,7 +72,7 @@
                     <img src="" alt="">
                 </div>
                 <div class="cold-coffees-body">
-                    <h2>Cold Coffees</h2>
+                    <h2>why us?</h2>
                     <label>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, repellat!</label>
                 </div>
             </div>
@@ -80,162 +81,17 @@
                     <img src="" alt="">
                 </div>
                 <div class="frappucino-coffees-body">
-                   <img src="assets/images/listecollecte.jpg" alt=""> 
+                   <img [src]="activity.image2" alt=""> 
                 </div>
             </div>
         </div>
     </div>
 
+</div>
 
 
 
-
-    <div class="shop" id="shop">
-        <!-- <div class="shop-header">
-            <h3>Shop</h3>
-            <h4>Blabla Coffee Drinks</h4>
-        </div> -->
-        <div class="shop-box">
-            <!-- <div class="item-1">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                        <label class="cash">4.45$</label>
-                        <h3>Caramel Macchiato</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div>
-            </div> -->
-            <div class="item-2">
-                <!-- <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <label class="cash">3.75$</label>
-                        <h3>Flat White</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div> -->
-            </div>
-            <div class="item-3">
-                <!-- <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                        <label class="cash">3.95$</label>
-                        <h3>Chocolate Frappucino</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div> -->
-            </div>
-            <div class="item-4">
-                <!-- <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <label class="cash">2.79$</label>
-                        <h3>Frappe</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div> -->
-            </div>
-            <div class="item-5">
-                <!-- <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                        <label class="cash">3.45$</label>
-                        <h3>Caffe Mocha</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div> -->
-            </div>
-            <div class="item-6">
-                <!-- <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <label class="cash">3.25$</label>
-                        <h3>Vanilla Frappucino</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div> -->
-            </div>
-            <div class="item-7">
-                <!-- <div class="card">
-                    <div class="card-image">
-                        <img src="i">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star-half"></i>
-                        <label class="cash">6.60$</label>
-                        <h3>White Chocolate Mocha</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div> -->
-            </div>
-            <!-- <div class="item-8">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="">
-                    </div>
-                    <div class="card-body">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <label class="cash">5.65$</label>
-                        <h3>Ice Latte</h3>
-                        <label>Lorem ipsum dolor sit amet.</label>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </div>
-
- 
+   
 
 
     <div class="footer">
@@ -247,10 +103,10 @@
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
             <div class="copyright">
-                <label>Copyright &copy; 2022</label>
+                <!-- <label>Copyright &copy; 2022</label> -->
             </div>
             <div class="brand">
-                <label>Blabla <span>Coffee</span></label>
+                <label>Want to <span>join us ?</span> <input type="checkbox"></label>
             </div>
         </div>
     </div>

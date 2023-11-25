@@ -1,6 +1,6 @@
 <div class="col-sm-6">
     <div class="card " style="width: 18rem;">
-        <img [src]="active?.img1" class="card-img-top" alt="...">
+        <img [src]="active?.image1" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><strong style="font-family: ';">{{active.titre}}</strong></h5>
           <div class="line"></div>
@@ -11,12 +11,12 @@
        
         </ul> -->
 
-       <div ><img src="assets/ressources/sablier.svg" alt="" width="20px" height="20px" style=" margin-: 20px"> <strong style="align-self: center; font-size: small; margin-left: 15px;">{{active?.dateDebut | date: "dd-MM-yyyy"}}</strong> <strong style="align-self: center; font-size: small;">....{{active?.dateFin | date: "dd-MM-yyyy"}}</strong>    <img src="assets/ressources/user.svg" alt="" width="20px" height="20px" style="margin-left: 20px;"> <strong style="font-size: small;">{{active?.nbPart}} </strong> </div> 
+       <div ><img src="assets/ressources/sablier.svg" alt=""style="margin-: 20px" width="20px" height="20px" > <strong style="align-self: center; font-size: small; margin-left: 15px;">{{active?.dateDebut | date: "dd-MM-yyyy"}}</strong> <strong style="align-self: center; font-size: small;">....{{active?.dateFin | date: "dd-MM-yyyy"}}</strong>    <img src="assets/ressources/user.svg" alt="" width="20px" height="20px" style="margin-left: 20px;"> <strong style="font-size: small;">{{active?.nbPart}} </strong> </div> 
        
         <div class="card-body">
         <strong style="font-size: large;">categorie: {{active.categorie}}</strong>  <br> <div style="display: flex; align-items: center;"><input type="checkbox" [checked]=""> <label for="" style=" margin-left: 2%; display: inline; font-size: small;">disponible</label></div> 
         </div>
-        <button type="button" class="btn btn-danger custom-btn " style="font-size: small; align-self: center;" [routerLink]="['/activities',active.id]"><strong>Show more</strong></button>
+        <button type="button" class="btn btn-danger custom-btn " style="font-size: small; align-self: center;" (click)="Infos(active.id)"><strong>Show more</strong></button>
 
     </div> 
 </div>

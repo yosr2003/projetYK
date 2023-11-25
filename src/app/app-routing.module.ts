@@ -11,6 +11,11 @@ import { FilterbydateComponent } from './filterbydate/filterbydate.component';
 import { ModifMdpComponent } from './modif-mdp/modif-mdp.component';
 import { ListcategoriesComponent } from './listcategories/listcategories.component';
 import { LkolComponent } from './lkol/lkol.component';
+import { authentificationGuard } from './authentification.guard';
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { BackoffComponent } from './backoff/backoff.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { SelectedactivityComponent } from './selectedactivity/selectedactivity.component';
 
 
 
@@ -27,7 +32,11 @@ const routes: Routes = [
     // {path:'accueil',title:'accueil',component:FundingsComponent}, 
     // { path: 'activities/filterbydate/:datecherche', title: 'activities', component: FilterbydateComponent },
     // {path:'fullstack',title:'fulls',component:FullstackComponent},
-    {path:'home',title:'home',component:FundingsComponent},
+    {path:'home',title:'home',component:FundingsComponent },
+    {path:'aboutus',title:'aboutus',component:AboutusComponent },
+    {path:'login',title:'login',component:AuthentificationComponent },
+    {path:'backoff',title:'backoff',component:BackoffComponent  ,canActivate:[authentificationGuard]},
+    {path:'selectedActivity/:identif', title:'selectedActiv', component:SelectedactivityComponent},
     // {path:'activities/:categorie',title:'activities',component:ListactiviteComponent},
     // {path:'activities/:titre',title:'activities',component:FilterbytitleComponent},
    

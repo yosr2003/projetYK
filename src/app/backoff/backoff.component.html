@@ -7,7 +7,8 @@
   
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
-<body>
+<body>     
+     <form action="" [formGroup]="actForm" (ngSubmit)="Ajouter()"> 
    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
@@ -16,7 +17,7 @@
         
         <div class="side-content">
             <div class="profile" >
-                <div class="profile-img bg-img" style="background-image: url(img/3.jpeg)"></div>
+                <div class="profile-img bg-img" style="background-image: url()"></div>
                 <h4>Rotaract</h4>
             
             </div>
@@ -75,7 +76,11 @@
                 
                 <div class="header-menu">
                     <label for="">
-                        <span class="las la-search"></span>
+                        <div class="search">
+                            <input placeholder="Search..." type="text" #textbox >
+                            <button type="submit" (click)="chercherpartitre(textbox.value)"  >Go</button>
+                          </div>
+                    <!-- (click)=" filtrerParNom()" -->
                     </label>
                     
                     <div class="notify-icon">
@@ -89,7 +94,7 @@
                     </div>
                     
                     <div class="user">
-                        <div class="bg-img" style="background-image: url(img/1.jpeg)"></div>
+                        <div class="bg-img" style="background-image: url()"></div>
                         
                         <span class="las la-power-off"></span>
                         <span>Logout</span>
@@ -177,10 +182,16 @@
                         </div>
 
                         <div class="browse">
-                           <input type="search" placeholder="Search" class="record-search">
-                            <select name="" id="">
-                                <option value="">Status</option>
-                            </select>
+                            <input type="button" value="ajouter" class="record-search" (click)=afficher()>
+                          
+                          <div >
+                            <select name="" id="" (change)="onActiviteChange($event)"  class="form-select" aria-label="Default select example" 
+                            style="margin-right: 10px; width: 200px; " >
+                                <option *ngFor="let act of categories$ | async">
+                                    {{ act }}
+                                  </option>
+                                  <option value="all">All</option>
+                            </select></div>
                         </div>
                     </div>
 
@@ -196,15 +207,15 @@
                                     <th><span class="las la-sort"></span> ACTIONS</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor="let a of lesActivites; let i = index ">
                             
-                                <tr *ngFor=" let a of lesActivites" >
-                                
+                                <tr *ngIf="lesActivites.length > 0" class="result-table"  [ngClass]="{'hid':show}" >
+                                  
                                     <td>#{{a.id}}</td>
                                    
                                     <td>
                                         <div class="client">
-                                            <div class="client-img bg-img"><img src="assets/images/a.img1" alt=""></div>
+                                            <div class="client-img bg-img"><img src="" alt=""></div>
 
                                             <div class="client-info">
                                                 <h4>{{a.titre}}</h4>
@@ -215,13 +226,112 @@
                                     </td>  
                                    
                                     <td>
-                                       {{a.nbPart}}
+                                        <input type="text" [value]="a.nbPart" disabled style="border: none;">
                                     </td>
                                     <td>
                                         {{a.dateDebut}}...{{a.dateFin}}
                                     </td>
                                     <td>
-                                     {{a.categorie}}
+                                        {{a.categorie}}
+                                    </td>
+                                    <td>
+                                        <div class="actions">
+                                            <span class="lab la-telegram-plane"(click)="onSupprimer(a.id)" ></span>
+                                            <span class="las la-eye" (click)="afficher2(i)"></span>
+                                            <span class="las la-ellipsis-v"></span>
+                                        </div> 
+                                 
+                                    </td>
+
+                                 
+                                  
+                                    
+                                  
+                                </tr>
+                           
+                                     <tr *ngIf="detail && detailIndex === i">
+                                  <ul>
+                                   <li>Lieu de l'activite:{{a.lieu}}</li> 
+                                 <li>a propos l'activite: <img [src]="a.image1" alt="" width="120px" height="100px">.. <img [src]="a.image2" alt="" width="120px" height="100px"></li>
+                                  <li>Capacite de l'activite: {{a.capacite}}</li>
+                                  <li>Disponibilité de l'activité: <input type="checkbox" [checked]="a.disponiblite" style="width: 180px;" ></li>
+                                  <li>Description de l'activité: {{a.description}}</li>
+                                 </ul>
+                                  <button (click)="activerEdition(a,i)" >modifier </button>
+
+
+                                     </tr> 
+                        
+                                     <tr *ngIf="isEditMode && editedActivityIndex === i">
+                                        <ul>
+                                          <li>ID: <input type="text" formControlName="id" ></li>
+                                          <li>Titre: <input type="text" formControlName="titre" ></li>
+                                          <li>Nombre de participants: <input type="text" formControlName="nbPart"></li>
+                                          <li>Début de l'activité: <input type="text" formControlName="dateDebut"></li>
+                                          <li>Fin de l'activité: <input type="text" formControlName="dateFin"></li>
+                                          <li>Catégorie: <input type="text" formControlName="categorie"></li>
+                                          <li>Lieu de l'activité: <input type="text" formControlName="lieu" style="width: 180px; "></li>
+                                          <li>Capacité: <input type="text" formControlName="capacite"></li>
+                                          <li>image 1: <input type="text" formControlName="image1"></li>
+                                          <li>image 2: <input type="text" formControlName="image2"></li>
+                                         
+                                          <li>Description: <textarea formControlName="description" style="width: 180px; "></textarea></li>
+                                         
+                                        </ul>
+                                        <button (click)="sauvegarderEdition()">Enregistrer</button>
+                                      </tr>
+
+
+
+                                
+                            </tbody><tr *ngIf="visible" >
+                              
+                                    <td># <input type="number" value="" formControlName="id" size="1">
+                                        <div *ngIf="idActivity?.invalid && idActivity?.dirty" class="alert alert-danger">
+                                            l'identifiant doit etre un nombre
+                                        </div></td>
+                                    
+                                   
+                                    <td>
+                                        <div class="client">
+                                            <div class="client-img bg-img"><img src="" alt=""></div>
+
+                                            <div class="client-info">
+                                                <h4><input type="text" value="" formControlName="titre" size="7"></h4>
+                                                <div *ngIf="isValidPattern()" class="alert alert-warning">
+                                                  invalide titre !!!
+                                                </div>
+                                                <!-- <small>bruno@crossover.org</small> -->
+                                            </div>
+                                        </div>
+
+                                    </td>  
+                                   
+                                    <td>
+                                        <input type="text" formControlName="nbPart" size="5">
+                                    </td>
+                                    <td>
+                                        <input type="text" formControlName="dateDebut" size="7">
+                                        
+                                        <div *ngIf="isValidPatternDateDebut()" class="alert alert-warning">
+                                            veuillez suivre ce modele(MMMM-dd-jj)!!!!
+                                           </div>
+                                        ...<input type="text" formControlName="dateFin" size="7"> 
+                                        <div *ngIf="isValidPatternDateFin()" class="alert alert-warning">
+                                            veuillez suivre ce modele(MMMM-dd-jj)!!!!
+                                           </div>
+
+                                    </td>
+                                    <td>
+                                        <input type="text" formControlName="categorie" size="7">
+                                        <div *ngIf="isValidPatternCategorie()" class="alert alert-warning">
+                                           la categorie doit comporter que des lettres!!!!
+                                          </div>
+                                    </td>
+                                  
+                                    <td>
+                                        
+                                       
                                     </td>
                                     <td>
                                         <div class="actions">
@@ -231,274 +341,28 @@
                                         </div> 
                                 
                                     </td>
-
-                                    
- 
+  
                                   
-                                </tr>
-                                
-                                  <!--    <td></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img"><img src="assets/images/a.img1" alt=""></div>
-
-                                            <div class="client-info">
-                                                <h4></h4>
-                                          
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                     
-                                    </td>
-                                    <td>
-                                     
-                                    </td>
-                                    <td>
-                                    
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr> 
- -->
-
-
-                              
                            
+                                 </tr>
+
+                               <button type="submit" *ngIf="visible" > enregistrer</button> 
 
 
 
-                                <!-- <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $2171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                                <small>bruno@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr> -->
-                                <!-- <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $2171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                                <small>bruno@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $3171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        -$205
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/1.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Exty Bruno</h4>
-                                                <small>exty@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        $2171
-                                    </td>
-                                    <td>
-                                        19 April, 2022
-                                    </td>
-                                    <td>
-                                        <span class="paid">Paid</span>
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr> -->
-                                
-                            </tbody>
+                            
+
+
+
+
+
+
+
+
+
+
+
+
                         </table>
                     </div>
 
@@ -508,6 +372,7 @@
             
         </main>
         
-    </div>
+    </div>  </form>
 </body>
 </html>
+

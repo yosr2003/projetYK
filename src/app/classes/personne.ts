@@ -1,3 +1,7 @@
 export class Personne {
-    constructor(public nom:string,public cin:number){}
+    constructor( public id:number,public nom: string, public prenom: string, public datenaissance: string, public adresse:string, public  email: string){}
+  
+  
+  
+  
 }
