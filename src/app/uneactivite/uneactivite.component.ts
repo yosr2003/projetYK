@@ -9,12 +9,17 @@ import { ActivitiesService } from '../serv/activities.service';
   styleUrls: ['./uneactivite.component.css']
 })
 export class UneactiviteComponent implements OnInit {
+  disp!:boolean;
+  myDate = new Date();
   constructor(private router:Router,private act:ActivitiesService){}
   ngOnInit(): void {
+    // if(this.active.dateDebut>this.myDate){
+    //   this.disp=false;
+    //   this.act.patchProduit(this.active.id,{disponiblite:this.disp}).subscribe(
+    //     data => this.active.disponiblite=this.disp
+    //   )
+    // }
     
-  //   this.act.patchProduit(this.id,{disponiblite:disp}).subscribe(
-  //   data => this.Activite2.disponiblite=! this.Activite2.disponiblite
-  // )
   }
 
   @Input() active!:Activite;

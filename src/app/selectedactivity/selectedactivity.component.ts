@@ -12,7 +12,6 @@ import { Personne } from '../classes/personne';
 })
 export class SelectedactivityComponent implements OnInit {
   part:boolean=false;
-  myDate = new Date();
   Members:Personne[]=[];
   Activite2!:Activite;
   id!:number;
