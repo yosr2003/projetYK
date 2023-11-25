@@ -40,6 +40,8 @@ export class BackoffComponent {
   editedActivityIndex: any;
 detailIndex: any;
   show: boolean=false;
+
+  searchshow:boolean=false;
   constructor(private ActService:ActivitiesService,private fb:FormBuilder,  private route: ActivatedRoute){}
 
 ngOnInit(): void {
@@ -135,28 +137,11 @@ Ajouter() {
           return this.dateFin?.errors?.['pattern']&& this.dateFin?.dirty;
           }
 
-          activerEdition(activity: Activite,index:number) {
-            this.isEditMode = true;
-          
-            this.editedActivityIndex = index;
-        
-            // Pré-remplir le formulaire avec les valeurs existantes
-            this.actForm.setValue({
-              id: activity.id,
-              titre: activity.titre,
-              nbPart: activity.nbPart,
-              dateDebut: activity.dateDebut,
-              dateFin: activity.dateFin,
-              categorie: activity.categorie,
-              lieu: activity.lieu,
-              capacite: activity.capacite,
-              disponiblite: activity.disponiblite,
-              description: activity.description,
-              image1: activity.image1,
-              image2: activity.image2,
-            });
-           
-          }
+          activerEdition(activity: Activite, index: number) {
+    this.isEditMode = true;
+    this.editedActivityIndex = index;
+    this.actForm.patchValue(activity);
+  }
           editedActivity: Activite | undefined;
           sauvegarderEdition() {
             if (this.editedActivityIndex !== undefined) {
@@ -178,7 +163,7 @@ Ajouter() {
             }}
            
             chercherpartitre(v:string) {
-              this.show=!this.show;
+              // this.show=!this.show;
               this.ActService.rechercherActiviteParTitre(v).subscribe({
                 next:(data)=>{
                   console.log({"date_result":data});
@@ -186,7 +171,17 @@ Ajouter() {
                 }
               })
             
-}}
+}
+
+afficherSearch() {
+  if (this.searchshow==true){
+    this.searchshow=false;
+  }
+  else{
+    this.searchshow=true;
+  }
+  }
+}
             // ...
         
            

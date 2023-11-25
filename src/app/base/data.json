@@ -44,7 +44,7 @@
       "image1": "assets/images/sortie.jpg",
       "image2": "assets/images/sortie2.jpg",
       "lieu": "sokra-chotrana1",
-      "disponibilite": true,
+      "disponiblite": true,
       "description": ""
     },
     {
@@ -68,7 +68,7 @@
       "image1": "assets/images/appel.jpg",
       "image2": "assets/images/listecollecte.jpg",
       "lieu": "sokra-chotrana1",
-      "disponibilite": true,
+      "disponiblite": true,
       "description": ""
     },
     {
@@ -92,7 +92,7 @@
       "image1": "assets/images/logononviolence.jpg",
       "image2": "assets/images/violence1.jpg",
       "lieu": "sokra-chotrana1",
-      "disponibilite": false,
+      "disponiblite": false,
       "description": ""
     },
     {
@@ -116,7 +116,7 @@
       "image1": "assets/images/rakmezienaffiche.jpg",
       "image2": "assets/images/rakmezienalogo.jpg",
       "lieu": "sokra-chotrana1",
-      "disponibilite": true,
+      "disponiblite": true,
       "description": ""
     }
   ],

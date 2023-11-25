@@ -70,17 +70,13 @@
         
         <header>
             <div class="header-content">
-                <label for="menu-toggle">
-                    <span class="las la-bars"></span>
+                <label for="menu-toggle" >
+                    <span class="las la-bars" ></span>
                 </label>
                 
                 <div class="header-menu">
-                    <label for="">
-                        <div class="search">
-                            <input placeholder="Search..." type="text" #textbox >
-                            <button type="submit" (click)="chercherpartitre(textbox.value)"  >Go</button>
-                          </div>
-                    <!-- (click)=" filtrerParNom()" -->
+                    <label for="" >
+                        <span class="las la-search" (click)="afficherSearch()"></span>
                     </label>
                     
                     <div class="notify-icon">
@@ -92,6 +88,8 @@
                         <span class="las la-bell"></span>
                         <span class="notify">3</span>
                     </div>
+                  
+                    
                     
                     <div class="user">
                         <div class="bg-img" style="background-image: url()"></div>
@@ -172,7 +170,7 @@
 
                 <div class="records table-responsive">
 
-                    <div class="record-header">
+                    <div class="record-header"> 
                         <div class="add">
                             <span>Entries</span>
                             <select name="" id="">
@@ -284,7 +282,9 @@
 
 
                                 
-                            </tbody><tr *ngIf="visible" >
+                            </tbody>
+                            
+                            <tr *ngIf="visible" >
                               
                                     <td># <input type="number" value="" formControlName="id" size="1">
                                         <div *ngIf="idActivity?.invalid && idActivity?.dirty" class="alert alert-danger">
@@ -373,6 +373,14 @@
         </main>
         
     </div>  </form>
+    <div  *ngIf="searchshow">
+    <label for="">
+        <div class="search" style="margin-left: 600px; width: 300px;">
+            <input placeholder="Search..." type="text" #textbox >
+            <button type="submit" (click)="chercherpartitre(textbox.value)"  >Go</button>
+          </div>
+    <!-- (click)=" filtrerParNom()" -->
+    </label></div>
 </body>
 </html>
 
