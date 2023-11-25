@@ -45,10 +45,10 @@
             </ul>
         </nav>
     </header>
-<div *ngIf="activity" >
+<!-- <div *ngIf="activity" > -->
     
     <div class="content">
-        <h1 style="color: aliceblue; font-size: 60px;">{{activity.titre}}</h1> <br>
+        <h1 style="color: aliceblue; font-size: 60px;">{{Activite2.titre}}</h1> <br>
         <p>Welcome to our Beloved Family '<strong style="color: rgb(214, 118, 204);">Rotaract CLUB</strong>' </p>
     </div>
 
@@ -63,7 +63,7 @@
                     <img src="" alt="">
                 </div>
                 <div class="hot-coffees-body">
-                 <img [src]="activity.image1" alt="" height="300px" width="700px">
+                 <img [src]="Activite2.image1" alt="" height="300px" width="700px">
                     
                 </div>
             </div>
@@ -72,22 +72,59 @@
                     <img src="" alt="">
                 </div>
                 <div class="cold-coffees-body">
-                    <h2>why us?</h2>
-                    <label>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius, repellat!</label>
+                    <h2>Description</h2>
+                    <label>{{Activite2.description}}</label>
+                    <label>{{Activite2.nbPart}}/</label>
+                    <label>{{Activite2.capacite}}</label>
+                    <label>{{myDate|date:'yyyy/MM/dd'}}</label>
+                    <button [disabled]="!Activite2.disponiblite" (click)="participer()">Participer</button>
                 </div>
             </div>
             <div class="frappucino-coffees">
                 <div class="frappucino-coffees-image">
-                    <img src="" alt="">
+                   
                 </div>
                 <div class="frappucino-coffees-body">
-                   <img [src]="activity.image2" alt=""> 
+                   <img [src]="Activite2.image2" alt=""> 
                 </div>
             </div>
         </div>
     </div>
 
-</div>
+    <div class="menu" id="menu">
+      <div class="menu-content"  *ngIf="part">
+        <form [formGroup]="actform" (ngSubmit)="onSubmitForm(Activite2.nbPart,Activite2.disponiblite)">
+          <div>
+                <label for="">id:</label>
+                <input type="number" class="form-control" name="" id="" formControlName="id">
+          </div>
+          <div>
+            <label for="">nom:</label>
+            <input type="text" class="form-control" name="" id="" formControlName="nom">
+          </div>
+          <div>
+            <label for="">prenom:</label>
+            <input type="text" class="form-control" name="" id="" formControlName="prenom">
+          </div>
+          <div>
+            <label for="">date de naissance:</label>
+            <input type="date" class="form-control" name="" id="" formControlName="dateN">
+          </div>
+          <div>
+            <label for="">adresse:</label>
+            <input type="text" class="form-control" name="" id="" formControlName="adrs">
+          </div>
+          <div>
+            <label for="">email:</label>
+            <input type="email" class="form-control" name="" id="" formControlName="email">
+          </div>
+          <input type="submit" class="btn btn-success" value=" send " >
+         
+        </form>
+      </div>
+    </div>
+
+<!-- </div> -->
 
 
 

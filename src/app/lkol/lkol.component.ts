@@ -31,6 +31,8 @@ export class LkolComponent implements OnInit {
         }
       )
     }
+    
+    
   }
   toggleMenu(){
     this.isMenuOpen = !this.isMenuOpen;

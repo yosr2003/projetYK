@@ -6,13 +6,12 @@ import { Personne } from '../classes/personne';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
 const URL='http://localhost:3000/activites';
+const URLMembers='http://localhost:3000/lesmembres';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
-  // URL = 'http://localhost:3000/activities/'
-  
   constructor(private http:HttpClient){}
   getActivites():Observable<Activite[]>{
     return this.http.get<Activite[]>(URL);
@@ -20,6 +19,10 @@ export class ActivitiesService {
   
   getActiviteById(id: number): Observable<Activite> {
     return this.http.get<Activite>(`${URL}/${id}`);
+  }
+
+  getMembers():Observable<Personne[]>{
+    return this.http.get<Personne[]>(URLMembers);
   }
   
   extraireCategorie(): Observable<string[]> {
@@ -50,7 +53,32 @@ export class ActivitiesService {
       map((activites) => activites.filter((act) => act.categorie === categorie))
     );
   }
+  patchProduit(id:number, data:any):Observable<Activite>{
+    return this.http.patch<Activite>(URL+"/"+ id, data);
+    }
 
+  getparticipants(id: number): Observable<Personne[]> {
+    const activiteURL = `${URL}/${id}`;
+
+    return this.http.get<Activite>(activiteURL).pipe(
+      map(activite => activite.participants)
+    );
+  }
+  updateActivite(id:number, a:Activite):Observable<Activite>{
+    return this.http.put<Activite>(URL+"/"+ id, a);
+    }
+  
+  // addparticipant(id: number,p:Personne): Observable<Personne[]> {
+  //   const activiteURL = `${URL}/${id}`;
+
+  //   return this.http.post<Activite>(activiteURL,p).pipe(
+  //     map(activite => activite.participants)
+  //   );
+  // }
+  // addParticipant(nouveauParticipant: Personne): void {
+  //   this.participants.push(nouveauParticipant);
+  // }
+    
   // activites: Activite[] = [
   //   new Activite(1,"Action 'RotaKids'", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)],"assets/images/rotakidspeiture.jpg","assets/images/rotakidsjouerenfants.jpg","","",""),
   //   new Activite(2,"journée a la  marsa", 20, new Date("2023-02-01"), new Date("2023-01-01"),'Sortie', 20, [new Personne('mohamed',563235)],"assets/images/sortie.jpg","assets/images/sortie2.jpg","","",""),
