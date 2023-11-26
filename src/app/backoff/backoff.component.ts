@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Personne } from '../classes/personne';
+import { AdminService } from '../serv/admin.service';
 
 @Component({
   selector: 'app-backoff',
@@ -12,6 +13,15 @@ import { Personne } from '../classes/personne';
   styleUrls: ['./backoff.component.css']
 })
 export class BackoffComponent {
+AjoutAutres!: boolean;
+afficheAutres() {
+  if (this.AjoutAutres==true){
+    this.AjoutAutres=false;
+  }
+  else{
+    this.AjoutAutres=true;
+  }
+}
  filteredActivites: Activite[] = [];
  titreRecherche: string = '';
 
@@ -44,7 +54,7 @@ detailIndex: any;
 
   searchshow:boolean=false;
   lesmembres!: Personne[];
-  constructor(private ActService:ActivitiesService,private fb:FormBuilder,  private route: ActivatedRoute){}
+  constructor(private ActService:ActivitiesService,private adminService:AdminService,private fb:FormBuilder,  private route: ActivatedRoute){}
 
 ngOnInit(): void {
  this.ActService.getActivites().subscribe((data: Activite[])=>this.lesActivites=data);
@@ -57,7 +67,7 @@ ngOnInit(): void {
    dateDebut: ['', [Validators.required, Validators.pattern('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')]],
    dateFin:['', [Validators.required, Validators.pattern('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')]],
    categorie:['',[Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-   capacite:[''],
+   capacite:['',Validators.required],
    lieu:[''],
    description:[''],
    image1:[''],
@@ -70,6 +80,7 @@ ngOnInit(): void {
 
    
   }
+ 
 
 
 detail:boolean=false;
@@ -120,6 +131,9 @@ Ajouter() {
   }
   public get CategorieActivity(){
     return this.actForm.get('categorie');
+  }
+  public get capacity(){
+    return this.actForm.get('capacite');
   }
   isValidPattern() {
     return this.TitreActivity?.errors?.['pattern']&& this.TitreActivity?.dirty;
@@ -184,6 +198,13 @@ afficherSearch() {
     this.searchshow=true;
   }
   }
+
+
+  logout(){
+    alert("deconnexion");
+    this.adminService.logout();
+  }
+
 }
             // ...
         

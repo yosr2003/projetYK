@@ -8,60 +8,11 @@
       "dateFin": "2023-11-04",
       "categorie": "action sociale",
       "capacite": 10,
-      "participants": [
-        {
-          "cin": 1,
-          "nom": "Mohamed",
-          "prenom": "Salah",
-          "date naissance": "2003-01-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        },
-        {
-          "cin": 12345678,
-          "nom": "Yosr",
-          "prenom": "Amamou",
-          "date naissance": "2003-10-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        },
-        {
-          "cin": 3,
-          "nom": "khadija",
-          "prenom": "chaar",
-          "date naissance": "2003-01-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        },
-        {
-          "cin": 12345678,
-          "nom": "JJHG",
-          "prenom": "JHG",
-          "datenaissance": null,
-          "adresse": "21 rue de marseilles la marsa",
-          "email": "chaarkhadija2003@gmail.com"
-        },
-        {
-          "cin": 11223344,
-          "nom": "JJHG",
-          "prenom": "JHG",
-          "datenaissance": null,
-          "adresse": "21 rue de marseilles la marsa",
-          "email": "chaarkhadija2003@gmail.com"
-        },
-        {
-          "cin": 12341234,
-          "nom": "Salah",
-          "prenom": "Jmel",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        }
-      ],
-      "description": "lkjeg^lkqe$rhk$sr^jltk$^p",
+      "lieu": "sokra-chotrana1",
+      "description": "",
       "image1": "assets/images/rotakidspeiture.jpg",
       "image2": "assets/images/rotakidsjouerenfants.jpg",
-      "disponiblite": true,
-      "lieu": "sokra-chotrana1"
+      "titre2": ""
     },
     {
       "id": 2,
@@ -104,8 +55,6 @@
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
         }
-
-    
       ],
       "image1": "assets/images/appel.jpg",
       "image2": "assets/images/listecollecte.jpg",
@@ -188,7 +137,7 @@
     {
       "id": 1,
       "login": "admin",
-      "password": "pass2"
+      "password": "pass1"
     }
   ],
   "lesmembres": [
@@ -220,7 +169,7 @@
       "cin": 12341234,
       "nom": "Salah",
       "prenom": "Jmel",
-      "date naissance": "2001-01-01",
+      "datenaissance": "2001-01-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"
     }

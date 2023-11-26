@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>     
-     <form action="" [formGroup]="actForm" (ngSubmit)="Ajouter()"> 
+     <form action="" [formGroup]="actForm"> 
    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
@@ -25,14 +25,14 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="" class="active">
-                            <span class="las la-home"></span>
+                       <a href="" class="active"  routerLink="/backoff">
+                            <span class="las la-home" routerLink="/backoff" ></span>
                             <small>Dashboard</small>
                         </a>
                     </li>
                     <li>
-                       <a href="" >
-                            <span class="las la-user-alt"></span>
+                       <a href="" routerLink="/profil" >
+                            <span class="las la-user-alt" routerLink="/profil" ></span>
                             <small>Profile</small>
                         </a>
                     </li>
@@ -77,7 +77,7 @@
                 
                 <div class="header-menu">
                     <label for="" >
-                        <span class="las la-search" (click)="afficherSearch()"></span>
+                        <span class="las la-search" ></span>
                     </label>
                     
                     <div class="notify-icon">
@@ -95,7 +95,7 @@
                     <div class="user">
                         <div class="bg-img" style="background-image: url()"></div>
                         
-                        <span class="las la-power-off"></span>
+                        <span class="las la-power-off" (click)="logout()"></span>
                         <span>Logout</span>
                     </div>
                 </div>
@@ -106,8 +106,8 @@
         <main>
             
             <div class="page-header">
-                <h1>Dashboard</h1>
-                <small>Home / Dashboard</small>
+                <h1>Adiministration profil</h1>
+                <small>profil / Dashboard</small>
             </div>
             
             <div class="page-content">
@@ -168,331 +168,108 @@
 
                 </div>
 
+<!-- ------------------------------------------------------------------------------------------------------------- -->
 
-                <div class="records table-responsive">
 
-                    <div class="record-header"> 
-                        <div class="add">
-                            <span>Entries</span>
-                            <select name="" id="">
-                                <option value="">ID</option>
-                            </select>
-                            <button>Add record</button>
-                        </div>
 
-                        <div class="browse">
-                            <input type="button" value="ajouter" class="record-search" (click)=afficher()>
-                          
-                          <div >
-                            <select name="" id="" (change)="onActiviteChange($event)"  class="form-select" aria-label="Default select example" 
-                            style="margin-right: 10px; width: 200px; " >
-                                <option *ngFor="let act of categories$ | async">
-                                    {{ act }}
-                                  </option>
-                                  <option value="all">All</option>
-                            </select></div>
-                        </div>
-                    </div>
 
-                    <div>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th><span class="las la-sort"></span> ACTIVITIES</th>
-                                    <th><span class="las la-sort"></span> NB.PARTICIPANTS</th>
-                                    <th><span class="las la-sort"></span> ISSUED DATE</th>
-                                    <th><span class="las la-sort"></span> CATEGORIE</th>
-                                    <th><span class="las la-sort"></span> ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody *ngFor="let a of lesActivites; let i = index ">
-                            
-                                <tr *ngIf="lesActivites.length > 0" class="result-table"  [ngClass]="{'hid':show}" >
-                                  
-                                    <td>#{{a.id}}</td>
-                                   
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img"><img src="" alt=""></div>
+                <section class="h-100 gradient-custom">
+                    <div class="container py-5">
 
-                                            <div class="client-info">
-                                                <h4>{{a.titre}}</h4>
-                                                <!-- <small>bruno@crossover.org</small> -->
-                                            </div>
-                                        </div>
+                       
 
-                                    </td>  
-                                   
-                                    <td>
-                                        <input type="text" [value]="a.nbPart" disabled style="border: none;">
-                                    </td>
-                                    <td>
-                                        {{a.dateDebut}}...{{a.dateFin}}
-                                    </td>
-                                    <td>
-                                        {{a.categorie}}
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"(click)="onSupprimer(a.id)" ></span>
-                                            <span class="las la-eye" (click)="afficher2(i)"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div> 
-                                 
-                                    </td>
 
-                                 
-                                  
-                                    
-                                  
-                                </tr>
+
+
+                      <div class="row d-flex justify-content-center my-4">
+
+
+<!-- ------------------------------------------------------------------------- -->
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                              <div >
+                                <h5 class="mb-0"></h5>
+                              </div>
+                              <div class="card-body">
+                                <ul >
+                                  <li
+                                    class=" d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                 <img src="assets/images/bg.jpg" alt="" style="border-color: black; border-radius: 1000000px; width: 150px;height: 150px; margin-left:120px;">
+                                  </li> <br>
+                                  <li class=" d-flex justify-content-between align-items-center px-0">
                            
-                                     <tr *ngIf="detail && detailIndex === i">
-                                  <ul>
-                                   <li>Lieu de l'activite:{{a.lieu}}</li> 
-                                 <li>a propos l'activite: <img [src]="a.image1" alt="" width="120px" height="100px">.. <img [src]="a.image2" alt="" width="120px" height="100px"></li>
-                                  <li>Capacite de l'activite: {{a.capacite}}</li>
-                                  <li>Disponibilité de l'activité: <input type="checkbox" [checked]="a.disponiblite" style="width: 180px;" ></li>
-                                  <li>Description de l'activité: {{a.description}}</li>
-                                 </ul>
-                                  <button (click)="activerEdition(a,i)" >modifier </button>
-
-
-                                     </tr> 
-                        
-                                     <tr *ngIf="isEditMode && editedActivityIndex === i">
-                                        <ul>
-                                          <li>ID: <input type="text" formControlName="id" ></li>
-                                          <li>Titre: <input type="text" formControlName="titre" ></li>
-                                          <li>Nombre de participants: <input type="text" formControlName="nbPart"></li>
-                                          <li>Début de l'activité: <input type="text" formControlName="dateDebut"></li>
-                                          <li>Fin de l'activité: <input type="text" formControlName="dateFin"></li>
-                                          <li>Catégorie: <input type="text" formControlName="categorie"></li>
-                                          <li>Lieu de l'activité: <input type="text" formControlName="lieu" style="width: 180px; "></li>
-                                          <li>Capacité: <input type="text" formControlName="capacite"></li>
-                                          <li>image 1: <input type="text" formControlName="image1"></li>
-                                          <li>image 2: <input type="text" formControlName="image2"></li>
-                                         
-                                          <li>Description: <textarea formControlName="description" style="width: 180px; "></textarea></li>
-                                         
-                                        </ul>
-                                        <button (click)="sauvegarderEdition()">Enregistrer</button>
-                                      </tr>
-
-
-
                                 
-                            </tbody>
-                            
-                            <tr *ngIf="visible" >
-                              
-                                    <td># <input type="number" value="" formControlName="id" size="1">
-                                        <div *ngIf="idActivity?.invalid && idActivity?.dirty" class="alert alert-danger">
-                                            l'identifiant doit etre un nombre
-                                        </div></td>
-                                    
-                                   
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img"><img src="" alt=""></div>
-
-                                            <div class="client-info">
-                                                <h4><input type="text" value="" formControlName="titre" size="7"></h4>
-                                                <div *ngIf="isValidPattern()" class="alert alert-warning">
-                                                  invalide titre !!!
-                                                </div>
-                                                <!-- <small>bruno@crossover.org</small> -->
-                                            </div>
-                                        </div>
-
-                                    </td>  
-                                   
-                                    <td>
-                                        <input type="text" formControlName="nbPart" size="5">
-                                    </td>
-                                    <td>
-                                        <input type="text" formControlName="dateDebut" size="7">
-                                        
-                                        <div *ngIf="isValidPatternDateDebut()" class="alert alert-warning">
-                                            veuillez suivre ce modele(MMMM-dd-jj)!!!!
-                                           </div>
-                                        ...<input type="text" formControlName="dateFin" size="7"> 
-                                        <div *ngIf="isValidPatternDateFin()" class="alert alert-warning">
-                                            veuillez suivre ce modele(MMMM-dd-jj)!!!!
-                                           </div>
-
-                                    </td>
-                                    <td>
-                                        <input type="text" formControlName="categorie" size="7">
-                                        <div *ngIf="isValidPatternCategorie()" class="alert alert-warning">
-                                           la categorie doit comporter que des lettres!!!!
-                                          </div>
-                                    </td>
+                                  </li>
+                                  <li
+                                    class="m d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                    <div>
+                                      <strong style="margin-left: 85px ; font-size: 30px;">Administrateur</strong><br>
+                                      <small style="margin-left: 62px ; color: gray;">Developpeur web et responsable systeme</small>
                                   
-                                    <td>
-                                        
-                                       
-                                    </td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div> 
+                                    </div>
                                 
-                                    </td>
+                                  </li>
+                                </ul>
+                    
+                               
+                              </div>
+                            </div>
+                          </div>
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+
+<div class="col-md-8">
+    <div class="card mb-4">
+        <div class="card mb-4">
+            <div class="card-header py-3">
+              <h5 class="mb-0">Full Name:</h5>
+            </div>
+            <p><strong>Admin YK</strong></p>
+          </div>
+
+      <div class="card mb-4">
+        <div class="card-header py-3">
+          <h5 class="mb-0">E-mail:</h5>
+        </div>
+        <p><strong>Admin.devWeb@gmail.com</strong></p>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header py-3">
+          <h5 class="mb-0">Phone Number</h5>
+        </div>
+        <p><strong>+216  26 321 501</strong></p>
+      </div>
+    <button (click)="showmdp()" style="width: 200px; border: none; color: rgba(0, 0, 255, 0.826);"> change Password?</button>
+
+    <app-modif-mdp *ngIf="showmdpp"></app-modif-mdp>
+
+    </div>
   
-                                  
-                           
-                                 </tr>
-
-                               <button type="submit" *ngIf="visible" > enregistrer</button> 
-
-
-
-                            
+  
 
 
 
 
 
 
-
-
-
-
-
-
-                        </table>
+  </div>
+  
+                       
+                      </div>
                     </div>
-
-                </div>
-            
+                  </section>
+            <!-- -------------------------------------------------------------- -->
             </div>
             
         </main>
         
     </div>  </form>
-    <div  *ngIf="searchshow">
-    <label for="">
-        <div class="search" style="margin-left: 600px; width: 300px;">
-            <input placeholder="Search..." type="text" #textbox >
-            <button type="submit" (click)="chercherpartitre(textbox.value)"  >Go</button>
-          </div>
-    <!-- (click)=" filtrerParNom()" -->
-    </label></div>
-
+    
 <!-- --------------------------------------------------------------- -->
 
-    <form action="" [formGroup]="actForm" (ngSubmit)="Ajouter()"> 
-        <input type="checkbox" id="menu-toggle">
-        
-         
-         <div class="main-content"> 
-             
-             
-           
-             
-             
-             <main>
-                 
-                 <div class="page-header">
-                     <h1>Members</h1>
-                   
-                 </div>
-                 
-                 <div class="page-content">
-                 
-                     
-     
-                     <div class="records table-responsive">
-     
-                         
-     
-                         <div>
-                             <table width="100%">
-                                 <thead>
-                                     <tr>
-                                         <th>#</th>
-                                         <th><span class="las la-sort"></span> NOM</th>
-                                         <th><span class="las la-sort"></span> PRENOM</th>
-                                         <th><span class="las la-sort"></span> DATE NAISSANCE</th>
-                                         <th><span class="las la-sort"></span> ADRESSE</th>
-                                         <th><span class="las la-sort"></span> E-MAIL</th>
-                                         <th><span class="las la-sort"></span> ACTIONS</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody *ngFor="let m of lesmembres; let i = index ">
-                                 
-                                     <tr *ngIf="lesActivites.length > 0" class="result-table"  [ngClass]="{'hid':show}" >
-                                       
-                                         <td>#{{m.id}}</td>
-                                        
-                                         <td>
-                                             <div class="client">
-                                                 <div class="client-img bg-img"><img src="" alt=""></div>
-     
-                                                 <div class="client-info">
-                                                     <h4>{{m.nom}}</h4>
-                                                     <!-- <small>bruno@crossover.org</small> -->
-                                                 </div>
-                                             </div>
-     
-                                         </td>  
-                                        
-                                         <td>
-                                          {{m.prenom}}
-                                         </td>
-                                         <td>
-                                             {{m.datenaissance}}
-                                         </td>
-                                         <td>
-                                            {{m.adresse}}
-                                         </td>
-                                         <td>
-                                            {{m.email}}
-                                      
-                                         </td>
-                                          <td>
-                                             <div class="actions">
-                                                 <span class="lab la-telegram-plane" ></span>
-                                                 <span class="las la-eye" ></span>
-                                                 <span class="las la-ellipsis-v"></span>
-                                             </div> 
-                                          </td>
-                                      
-                                       
-                                         
-                                       
-                                     </tr>
-                                
-                                       
-                             
-                                    
-                                        
-     
-     
-     
-                                     
-                                 </tbody>
-                                 
-                                
-       
-                                
-     
-     
-     
-                             </table>
-                         </div>
-     
-                     </div>
-                 
-                 </div>
-                 
-             </main>
-             
-         </div>  </form>
+
 
 
 

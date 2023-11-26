@@ -25,14 +25,14 @@
             <div class="side-menu">
                 <ul>
                     <li>
-                       <a href="" class="active">
-                            <span class="las la-home"></span>
+                       <a href="" class="active" routerLink="/backoff">
+                            <span class="las la-home" routerLink="/backoff"></span>
                             <small>Dashboard</small>
                         </a>
                     </li>
                     <li>
-                       <a href="" >
-                            <span class="las la-user-alt"></span>
+                       <a href=""  routerLink="/profil">
+                            <span class="las la-user-alt" routerLink="/profil"  ></span>
                             <small>Profile</small>
                         </a>
                     </li>
@@ -95,7 +95,7 @@
                     <div class="user">
                         <div class="bg-img" style="background-image: url()"></div>
                         
-                        <span class="las la-power-off"></span>
+                        <span class="las la-power-off" (click)="logout()"></span>
                         <span>Logout</span>
                     </div>
                 </div>
@@ -309,18 +309,14 @@
                                     </td>  
                                    
                                     <td>
-                                        <input type="text" formControlName="nbPart" size="5">
+                                        
                                     </td>
                                     <td>
-                                        <input type="text" formControlName="dateDebut" size="7">
+                                        <input type="date" formControlName="dateDebut" size="7">
                                         
-                                        <div *ngIf="isValidPatternDateDebut()" class="alert alert-warning">
-                                            veuillez suivre ce modele(MMMM-dd-jj)!!!!
-                                           </div>
-                                        ...<input type="text" formControlName="dateFin" size="7"> 
-                                        <div *ngIf="isValidPatternDateFin()" class="alert alert-warning">
-                                            veuillez suivre ce modele(MMMM-dd-jj)!!!!
-                                           </div>
+                                      
+                                        ...<input type="date" formControlName="dateFin" size="7"> 
+                                      
 
                                     </td>
                                     <td>
@@ -337,7 +333,7 @@
                                     <td>
                                         <div class="actions">
                                             <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
+                                            <span class="las la-eye" (click)="afficheAutres()"></span>
                                             <span class="las la-ellipsis-v"></span>
                                         </div> 
                                 
@@ -346,6 +342,27 @@
                                   
                            
                                  </tr>
+                                 <tr *ngIf="AjoutAutres">
+                                    <ul>
+                                     
+                                      <li>Lieu de l'activité: <input type="text" formControlName="lieu" style="width: 180px; ">
+                                        
+                                    </li>
+                                      <li>Capacité: <input type="number" formControlName="capacite">
+                                        <div *ngIf="capacity?.invalid && capacity?.dirty" class="alert alert-danger">
+                                            la capacité doit etre un nombre
+                                        </div></li>
+                                      <li>image 1: <input type="text" formControlName="image1"></li>
+                                      <li>image 2: <input type="text" formControlName="image2"></li>
+                                     
+                                      <li>Description: <textarea formControlName="description" style="width: 180px; "></textarea></li>
+                                     
+                                    </ul>
+                                   
+                                  </tr>
+
+
+                                 
 
                                <button type="submit" *ngIf="visible" > enregistrer</button> 
 
@@ -427,7 +444,7 @@
                                  
                                      <tr *ngIf="lesActivites.length > 0" class="result-table"  [ngClass]="{'hid':show}" >
                                        
-                                         <td>#{{m.id}}</td>
+                                         <td>#</td>
                                         
                                          <td>
                                              <div class="client">

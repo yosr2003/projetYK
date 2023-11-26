@@ -16,6 +16,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { BackoffComponent } from './backoff/backoff.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { SelectedactivityComponent } from './selectedactivity/selectedactivity.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -35,6 +36,7 @@ const routes: Routes = [
     {path:'home',title:'home',component:FundingsComponent },
     {path:'aboutus',title:'aboutus',component:AboutusComponent },
     {path:'login',title:'login',component:AuthentificationComponent },
+    {path:'profil',title:'profil',component:ProfilComponent },
     {path:'backoff',title:'backoff',component:BackoffComponent  ,canActivate:[authentificationGuard]},
     {path:'selectedActivity/:identif', title:'selectedActiv', component:SelectedactivityComponent},
     // {path:'activities/:categorie',title:'activities',component:ListactiviteComponent},

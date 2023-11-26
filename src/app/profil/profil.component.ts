@@ -5,6 +5,7 @@ import { Personne } from '../classes/personne';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivitiesService } from '../serv/activities.service';
+import { AdminService } from '../serv/admin.service';
 
 @Component({
   selector: 'app-profil',
@@ -12,6 +13,8 @@ import { ActivitiesService } from '../serv/activities.service';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent {
+
+
   filteredActivites: Activite[] = [];
   titreRecherche: string = '';
  
@@ -44,7 +47,7 @@ export class ProfilComponent {
  
    searchshow:boolean=false;
    lesmembres!: Personne[];
-   constructor(private ActService:ActivitiesService,private fb:FormBuilder,  private route: ActivatedRoute){}
+   constructor(private ActService:ActivitiesService,private adminservice:AdminService ,private fb:FormBuilder,  private route: ActivatedRoute){}
  
  ngOnInit(): void {
   this.ActService.getActivites().subscribe((data: Activite[])=>this.lesActivites=data);
@@ -73,6 +76,7 @@ export class ProfilComponent {
  
  
  detail:boolean=false;
+ showmdpp:boolean=false;
  actForm!: FormGroup;
  afficher() {
  if (this.visible==true){
@@ -184,4 +188,23 @@ export class ProfilComponent {
      this.searchshow=true;
    }
    }
+
+  
+   showmdp() {
+   
+       if (this.showmdpp==true){
+         this.showmdpp=false;
+       }
+       else{
+         this.showmdpp=true;
+       }
+       
+   }
+
+   logout(){
+    alert("Are you sure you want to logout ?");
+    this.adminservice.logout();
+  }
+
+
 }

@@ -66,7 +66,7 @@ export class AdminService {
   // its value from localstorage
   public logout(): void {
     localStorage.removeItem('admin');
-    this.router.navigate(['/acceuil']);
+    this.router.navigate(['/home']);
   }
 //netsawer bch nesthakkha ki nheb nemchi lel site taa admin , b ngif  
   public isAuthenticated(): boolean {
