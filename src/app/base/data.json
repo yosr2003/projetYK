@@ -3,87 +3,128 @@
     {
       "id": 1,
       "titre": " Action 'RotaKids' ",
-      "nbPart": 7,
-      "dateDebut": "2023-10-02",
-      "dateFin": "2023-11-04",
+      "nbPart": 2,
+      "dateDebut": "2023-11-20",
+      "dateFin": "2023-11-29",
       "categorie": "action sociale",
-      "capacite": 10,
-      "lieu": "sokra-chotrana1",
-      "description": "",
-      "disponiblite": false,
-      "image1": "assets/images/rotakidsjouerenfants.jpg",
-      "image2": "assets/images/rotakidspeiture.jpg",
-      "titre2": ""
-    },
-    {
-      "id": 2,
-      "titre": "Journée a la  marsa",
-      "nbPart": 19,
-      "dateDebut": "2023-02-01",
-      "dateFin": "2023-01-01",
-      "categorie": "Sortie",
-      "capacite": 20,
+      "capacite": 5,
       "participants": [
         {
-          "cin": 2,
-          "nom": "yosr",
-          "prenom": "amamou",
-          "datenaissance": "2003-10-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        }
-      ],
-      "image1": "assets/images/sortie.jpg",
-      "image2": "assets/images/sortie2.jpg",
-      "lieu": "sokra-chotrana1",
-      "disponiblite": true,
-      "description": ""
-    },
-    {
-      "id": 3,
-      "titre": "collecte fourniture scolaire",
-      "nbPart": 20,
-      "dateDebut": "2023-03-01",
-      "dateFin": "2023-01-01",
-      "categorie": "collecte",
-      "capacite": 20,
-      "participants": [
-        {
-          "cin": 2,
-          "nom": "yosr",
-          "prenom": "amamou",
-          "datenaissance": "2003-10-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
+          "cin": 28886355,
+          "nom": "Molka",
+          "prenom": "Wesleti",
+          "datenaissance": "2001-01-01",
+          "adresse": "Centre ville",
+          "email": "Molka@yahoo.com"
         },
         {
           "cin": 12341234,
           "nom": "Salah",
           "prenom": "Jmel",
           "datenaissance": "2001-01-01",
+          "adresse": "lac1",
+          "email": "salah@yahoo.com"
+        }
+      ],
+      "lieu": "sokra-chotrana1",
+      "description": "nous sommes fiers de partager avec vous notre action RotaKids qui s'est déroule a  l'école primaire « Hay Tadhamon 1 », où les membres de Rotaract Carthago Notre Dame et Rotaract Carthage Sunshine ont uni leurs forces pour apporter de la joie et de la lumière dans la vie de nombreux enfants.  Notre équipe a consacré son temps et son énergie à rénover et à peindre une classe préparatoire . De plus, nous avons organisé des ateliers de jeux, de dessin, de théâtre et de danse qui ont permis aux enfants de s’exprimer et de s’épanouir. ",
+      "disponiblite": true,
+      "image1": "assets/images/rotakidsjouerenfants.jpg",
+      "image2": "assets/images/rotakidspeiture.jpg"
+    },
+    {
+      "id": 2,
+      "titre": "Journée a la  marsa",
+      "nbPart": 3,
+      "dateDebut": "2023-01-01",
+      "dateFin": "2023-01-01",
+      "categorie": "Sortie",
+      "capacite": 3,
+      "participants": [
+        {
+          "cin": 26321556,
+          "nom": "Mohamed",
+          "prenom": "Salah",
+          "datenaissance": "2003-01-01",
+          "adresse": "Aouina",
+          "email": "Salah@yahoo.com"
+        },
+        {
+          "cin": 12345678,
+          "nom": "Yosr",
+          "prenom": "Amamou",
+          "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
+        },
+        {
+          "cin": 11223344,
+          "nom": "Khadija",
+          "prenom": "Chaar",
+          "datenaissance": "2003-01-01",
+          "adresse": "Marsa",
+          "email": "khadija@yahoo.com"
+        }
+      ],
+      "image1": "assets/images/sortie.jpg",
+      "image2": "assets/images/sortie2.jpg",
+      "lieu": "sokra-chotrana1",
+      "disponiblite": false,
+      "description": "Chaque journée ensoleillée devrait être un jour de pique-nique, c'est pourquoi nos membres ont saisi l'occasion de visiter le « Parc El Saada » et de passer quelques heures ensemble, remplis de rires, de bonheur et de discussions significatives sur nos aspirations, nos préoccupations et nos objectifs."
+    },
+    {
+      "id": 3,
+      "titre": "collecte fourniture scolaire",
+      "nbPart": 3,
+      "dateDebut": "2023-12-01",
+      "dateFin": "2023-12-10",
+      "categorie": "collecte",
+      "capacite": 4,
+      "participants": [
+        {
+          "cin": 11223344,
+          "nom": "Khadija",
+          "prenom": "Chaar",
+          "datenaissance": "2003-01-01",
+          "adresse": "Marsa",
+          "email": "khadija@yahoo.com"
+        },
+        {
+          "cin": 12341234,
+          "nom": "Salah",
+          "prenom": "Jmel",
+          "datenaissance": "2001-01-01",
+          "adresse": "lac1",
+          "email": "salah@yahoo.com"
+        },
+        {
+          "cin": 28886355,
+          "nom": "Molka",
+          "prenom": "Wesleti",
+          "datenaissance": "2001-01-01",
+          "adresse": "Centre ville",
+          "email": "Molka@yahoo.com"
         }
       ],
       "image1": "assets/images/appel.jpg",
       "image2": "assets/images/listecollecte.jpg",
       "lieu": "sokra-chotrana1",
       "disponiblite": true,
-      "description": ""
+      "description": "Nous sommes ravis d'annoncer le début de notre campagne annuelle de collecte de fournitures scolaires!, Notre objectif est d'aider les enfants dans le besoin à démarrer l'année scolaire avec tous les outils nécessaires pour réussir. Chaque don compte et fait une différence significative dans la vie des jeunes apprenants."
     },
     {
       "id": 4,
       "titre": " Event 'non-violence'",
       "nbPart": 1,
-      "dateDebut": "2023-03-01",
-      "dateFin": "2023-01-01",
+      "dateDebut": "2024-01-02",
+      "dateFin": "2024-01-10",
       "categorie": "evenement",
-      "capacite": 1,
+      "capacite": 5,
       "participants": [
         {
-          "cin": 2,
-          "nom": "yosr",
-          "prenom": "amamou",
+          "cin": 12345678,
+          "nom": "Yosr",
+          "prenom": "Amamou",
           "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
@@ -92,54 +133,23 @@
       "image1": "assets/images/logononviolence.jpg",
       "image2": "assets/images/violence1.jpg",
       "lieu": "sokra-chotrana1",
-      "disponiblite": false,
-      "description": ""
+      "disponiblite": true,
+      "description": " En cette journée internationale de la non-violence, soyons unis pour faire la lumière sur les statistiques qui nous rappellent le besoin urgent de changement. Chaque statistique représente une vie affectée. Choisissons la paix, l'empathie et l'unité plutôt que la violence."
     },
     {
       "id": 5,
       "titre": "Event 'Rac Meziena'",
-      "nbPart": 3,
-      "dateDebut": "2023-03-01",
-      "dateFin": "2023-01-01",
+      "nbPart": 0,
+      "dateDebut": "2024-03-01",
+      "dateFin": "2024-03-07",
       "categorie": "evenement",
-      "capacite": 4,
-      "participants": [
-        {
-          "cin": 2,
-          "nom": "yosr",
-          "prenom": "amamou",
-          "datenaissance": "2003-10-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        },
-        {
-          "cin": 3,
-          "nom": "khadija",
-          "prenom": "chaar",
-          "date naissance": "2003-01-01",
-          "adresse": "sokra",
-          "email": "yosr@yahoo.com"
-        },
-        {
-          "id": 1,
-          "nom": "",
-          "datenaissance": null,
-          "adresse": "",
-          "email": ""
-        },
-        {
-          "id": 4,
-          "nom": "",
-          "datenaissance": null,
-          "adresse": "",
-          "email": ""
-        }
-      ],
+      "capacite": 5,
+      "participants": [],
       "image1": "assets/images/rakmezienaffiche.jpg",
       "image2": "assets/images/rakmezienalogo.jpg",
       "lieu": "sokra-chotrana1",
       "disponiblite": true,
-      "description": ""
+      "description": "Nous sommes ravis de vous inviter à notre événement spécial de sensibilisation, dédié à la lutte contre le cancer du sein. Rejoignez-nous pour une journée pleine d'informations, d'activités engageantes et de solidarité autour de cette cause cruciale."
     }
   ],
   "admin": [
@@ -151,43 +161,58 @@
   ],
   "lesmembres": [
     {
-      "cin": 1,
+      "cin": 26321556,
       "nom": "Mohamed",
       "prenom": "Salah",
       "datenaissance": "2003-01-01",
-      "adresse": "sokra",
-      "email": "yosr@yahoo.com"
+      "adresse": "Aouina",
+      "email": "Salah@yahoo.com"
     },
     {
       "cin": 12345678,
-      "nom": "yosr",
-      "prenom": "amamou",
+      "nom": "Yosr",
+      "prenom": "Amamou",
       "datenaissance": "2003-10-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"
     },
     {
       "cin": 11223344,
-      "nom": "khadija",
-      "prenom": "chaar",
+      "nom": "Khadija",
+      "prenom": "Chaar",
       "datenaissance": "2003-01-01",
-      "adresse": "sokra",
-      "email": "yosr@yahoo.com"
+      "adresse": "Marsa",
+      "email": "khadija@yahoo.com"
     },
     {
       "cin": 12341234,
       "nom": "Salah",
       "prenom": "Jmel",
       "datenaissance": "2001-01-01",
-      "adresse": "sokra",
-      "email": "yosr@yahoo.com"
+      "adresse": "lac1",
+      "email": "salah@yahoo.com"
+    },
+    {
+      "cin": 28886355,
+      "nom": "Molka",
+      "prenom": "Wesleti",
+      "datenaissance": "2001-01-01",
+      "adresse": "Centre ville",
+      "email": "Molka@yahoo.com"
     }
   ],
-  "lesnotifs":[
+  "lesnotifs": [
     {
-      "nom":"charr",
-      "prenom":"khadija",
-      "act":"act1"
+      "id": 1,
+      "nom": "Khadija",
+      "prenom": "Chaar",
+      "act": "uiu"
+    },
+    {
+      "id": 12341234,
+      "nom": "Salah",
+      "prenom": "Jmel",
+      "act": " Action 'RotaKids' "
     }
   ]
 }

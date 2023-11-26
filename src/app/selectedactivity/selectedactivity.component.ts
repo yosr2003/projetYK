@@ -100,8 +100,8 @@ export class SelectedactivityComponent implements OnInit {
              data => this.Activite2.disponiblite=! this.Activite2.disponiblite
            )
          }
-      let notif=new Notif(this.p.nom,this.p.prenom,this.Activite2.titre);
-      this.actServ.addNotif(notif).subscribe()
+      let notif=new Notif(this.p.cin,this.p.nom,this.p.prenom,this.Activite2.titre);
+      this.actServ.addNotif(notif).subscribe(data=>console.log(data));
     }
  }
 

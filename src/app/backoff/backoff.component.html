@@ -91,6 +91,7 @@
                     <span class="las la-bars" ></span>
                 </label>
                 
+                
                 <div class="header-menu">
                     <label for="" >
                         <span class="las la-search" (click)="afficherSearch()"></span>
@@ -105,12 +106,7 @@
                         <span class="las la-bell">{{notifications.length}}</span>
                         <span class="notify">3</span>
                     </div>
-                   <div *ngIf="bell">
-                    <div *ngFor="let n of notifications">
-                         {{n.nom}} {{n.prenom}} vient de participer a l'activite {{n.act}}
-                    </div>
 
-                   </div>
                     
                     
                     <div class="user">
@@ -122,7 +118,7 @@
                 </div>
             </div>
         </header>
-        
+       
         
         <main>
             
@@ -132,7 +128,15 @@
             </div>
             
             <div class="page-content">
-            
+             <div *ngIf="bell" style="background-color: rgb(5, 5, 5,0.5); width: 350px; height: 150px; margin-top: 5; margin-left: 60%; border-radius: 20px; color: white; font-size:small;">
+           <ol style="padding: 10%;">
+          <strong>Notifications</strong>       
+            <li *ngFor="let n of notifications">
+             + {{n.nom |titlecase}} {{n.prenom |titlecase}} vient de participer a l'activite {{n.act | uppercase}}
+            </li>
+        </ol>
+
+         </div>
                 <div class="analytics">
 
                     <div class="card">
