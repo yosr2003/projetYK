@@ -3,19 +3,14 @@
     {
       "id": 1,
       "titre": " Action 'RotaKids' ",
-      "nbPart": "3",
-      "dateDebut": "2023-12-02",
-      "dateFin": "2023-12-06",
+      "nbPart": 7,
+      "dateDebut": "2023-10-02",
+      "dateFin": "2023-11-04",
       "categorie": "action sociale",
-      "capacite": "10",
-      "disponiblite": true,
-      "lieu": "sokra-chotrana1",
-      "description": "lkjeg^lkqe$rhk$sr^jltk$^p",
-      "image1": "assets/images/rotakidspeiture.jpg",
-      "image2": "assets/images/rotakidsjouerenfants.jpg",
+      "capacite": 10,
       "participants": [
         {
-          "id": 1,
+          "cin": 1,
           "nom": "Mohamed",
           "prenom": "Salah",
           "date naissance": "2003-01-01",
@@ -23,22 +18,50 @@
           "email": "yosr@yahoo.com"
         },
         {
-          "id": 2,
-          "nom": "yosr",
-          "prenom": "amamou",
+          "cin": 12345678,
+          "nom": "Yosr",
+          "prenom": "Amamou",
           "date naissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
         },
         {
-          "id": 3,
+          "cin": 3,
           "nom": "khadija",
           "prenom": "chaar",
           "date naissance": "2003-01-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
+        },
+        {
+          "cin": 12345678,
+          "nom": "JJHG",
+          "prenom": "JHG",
+          "datenaissance": null,
+          "adresse": "21 rue de marseilles la marsa",
+          "email": "chaarkhadija2003@gmail.com"
+        },
+        {
+          "cin": 11223344,
+          "nom": "JJHG",
+          "prenom": "JHG",
+          "datenaissance": null,
+          "adresse": "21 rue de marseilles la marsa",
+          "email": "chaarkhadija2003@gmail.com"
+        },
+        {
+          "cin": 12341234,
+          "nom": "Salah",
+          "prenom": "Jmel",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
         }
-      ]
+      ],
+      "description": "lkjeg^lkqe$rhk$sr^jltk$^p",
+      "image1": "assets/images/rotakidspeiture.jpg",
+      "image2": "assets/images/rotakidsjouerenfants.jpg",
+      "disponiblite": true,
+      "lieu": "sokra-chotrana1"
     },
     {
       "id": 2,
@@ -50,7 +73,7 @@
       "capacite": 20,
       "participants": [
         {
-          "id": 2,
+          "cin": 2,
           "nom": "yosr",
           "prenom": "amamou",
           "date naissance": "2003-10-01",
@@ -61,33 +84,45 @@
       "image1": "assets/images/sortie.jpg",
       "image2": "assets/images/sortie2.jpg",
       "lieu": "sokra-chotrana1",
-      "disponiblite": true,
+      "disponiblite": false,
       "description": ""
     },
     {
       "id": 3,
       "titre": "collecte fourniture scolaire",
-      "nbPart": 18,
+      "nbPart": 19,
       "dateDebut": "2023-03-01",
       "dateFin": "2023-01-01",
       "categorie": "collecte",
       "capacite": 20,
       "participants": [
         {
-          "id": 2,
+          "cin": 2,
           "nom": "yosr",
           "prenom": "amamou",
           "date naissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
+        },
+        {
+          "cin": 4,
+          "nom": "",
+          "datenaissance": null,
+          "adresse": "",
+          "email": ""
+        },
+        {
+          "cin": 1,
+          "nom": "",
+          "datenaissance": null,
+          "adresse": "",
+          "email": ""
         }
-
-    
       ],
       "image1": "assets/images/appel.jpg",
       "image2": "assets/images/listecollecte.jpg",
       "lieu": "sokra-chotrana1",
-      "disponiblite": true,
+      "disponiblite": false,
       "description": ""
     },
     {
@@ -100,7 +135,7 @@
       "capacite": 1,
       "participants": [
         {
-          "id": 2,
+          "cin": 2,
           "nom": "yosr",
           "prenom": "amamou",
           "date naissance": "2003-10-01",
@@ -117,14 +152,14 @@
     {
       "id": 5,
       "titre": "Event 'Rac Meziena'",
-      "nbPart": 2,
+      "nbPart": 3,
       "dateDebut": "2023-03-01",
       "dateFin": "2023-01-01",
       "categorie": "evenement",
       "capacite": 4,
       "participants": [
         {
-          "id": 2,
+          "cin": 2,
           "nom": "yosr",
           "prenom": "amamou",
           "date naissance": "2003-10-01",
@@ -132,7 +167,7 @@
           "email": "yosr@yahoo.com"
         },
         {
-          "id": 3,
+          "cin": 3,
           "nom": "khadija",
           "prenom": "chaar",
           "date naissance": "2003-01-01",
@@ -156,7 +191,7 @@
   ],
   "lesmembres": [
     {
-      "id": 1,
+      "cin": 1,
       "nom": "Mohamed",
       "prenom": "Salah",
       "date naissance": "2003-01-01",
@@ -164,7 +199,7 @@
       "email": "yosr@yahoo.com"
     },
     {
-      "id": 2,
+      "cin": 12345678,
       "nom": "yosr",
       "prenom": "amamou",
       "date naissance": "2003-10-01",
@@ -172,7 +207,7 @@
       "email": "yosr@yahoo.com"
     },
     {
-      "id": 3,
+      "cin": 11223344,
       "nom": "khadija",
       "prenom": "chaar",
       "date naissance": "2003-01-01",
@@ -180,9 +215,9 @@
       "email": "yosr@yahoo.com"
     },
     {
-      "id": 4,
-      "nom": "salah",
-      "prenom": "jmel",
+      "cin": 12341234,
+      "nom": "Salah",
+      "prenom": "Jmel",
       "date naissance": "2001-01-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"

@@ -8,19 +8,10 @@ import { ActivitiesService } from '../serv/activities.service';
   templateUrl: './uneactivite.component.html',
   styleUrls: ['./uneactivite.component.css']
 })
-export class UneactiviteComponent implements OnInit {
-  disp!:boolean;
-  myDate = new Date();
-  constructor(private router:Router,private act:ActivitiesService){}
-  ngOnInit(): void {
-    // if(this.active.dateDebut>this.myDate){
-    //   this.disp=false;
-    //   this.act.patchProduit(this.active.id,{disponiblite:this.disp}).subscribe(
-    //     data => this.active.disponiblite=this.disp
-    //   )
-    // }
-    
-  }
+export class UneactiviteComponent  {
+  
+  constructor(private router:Router){}
+
 
   @Input() active!:Activite;
   @Input() index!: number;

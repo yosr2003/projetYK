@@ -1,4 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+input.ng-valid {
+    border-left: 2px solid green;
+    animation: pulse 0.5s ease-in-out;
+  }
+  
+  /* For invalid inputs */
+  input.ng-invalid {
+    border-left: 2px solid red;
+    /* animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both; */
+  }
+  
+  /* Keyframes for the pulse animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Keyframes for the shake animation */
+  /* @keyframes shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translateX(5px);
+    }
+  } */
+
+
+
+
 
 * {
     margin: 0;
