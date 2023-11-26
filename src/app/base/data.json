@@ -3,21 +3,38 @@
     {
       "id": 1,
       "titre": " Action 'RotaKids' ",
-      "nbPart": "100",
-      "dateDebut": "2023-01-02",
-      "dateFin": "2023-01-01",
+      "nbPart": "3",
+      "dateDebut": "2023-12-02",
+      "dateFin": "2023-12-06",
       "categorie": "action sociale",
-      "capacite": "20",
+      "capacite": "10",
+      "disponiblite": false,
       "lieu": "sokra-chotrana1",
-      "description": "",
+      "description": "lkjeg^lkqe$rhk$sr^jltk$^p",
       "image1": "assets/images/rotakidspeiture.jpg",
       "image2": "assets/images/rotakidsjouerenfants.jpg",
       "participants": [
+        {
+          "id": 1,
+          "nom": "Mohamed",
+          "prenom": "Salah",
+          "date naissance": "2003-01-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        },
         {
           "id": 2,
           "nom": "yosr",
           "prenom": "amamou",
           "date naissance": "2003-10-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        },
+        {
+          "id": 3,
+          "nom": "khadija",
+          "prenom": "chaar",
+          "date naissance": "2003-01-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
         }
@@ -50,7 +67,7 @@
     {
       "id": 3,
       "titre": "collecte fourniture scolaire",
-      "nbPart": 13,
+      "nbPart": 18,
       "dateDebut": "2023-03-01",
       "dateFin": "2023-01-01",
       "categorie": "collecte",
@@ -63,6 +80,13 @@
           "datenaissance": "2003-10-01",
           "adresse": "sokra",
           "email": "yosr@yahoo.com"
+        },
+        {
+          "id": 1,
+          "nom": "",
+          "datenaissance": null,
+          "adresse": "",
+          "email": ""
         }
       ],
       "image1": "assets/images/appel.jpg",
@@ -74,11 +98,11 @@
     {
       "id": 4,
       "titre": " Event 'non-violence'",
-      "nbPart": 13,
+      "nbPart": 1,
       "dateDebut": "2023-03-01",
       "dateFin": "2023-01-01",
       "categorie": "evenement",
-      "capacite": 20,
+      "capacite": 1,
       "participants": [
         {
           "id": 2,
@@ -98,11 +122,11 @@
     {
       "id": 5,
       "titre": "Event 'Rac Meziena'",
-      "nbPart": 13,
+      "nbPart": 2,
       "dateDebut": "2023-03-01",
       "dateFin": "2023-01-01",
       "categorie": "evenement",
-      "capacite": 20,
+      "capacite": 4,
       "participants": [
         {
           "id": 2,
@@ -113,7 +137,22 @@
           "email": "yosr@yahoo.com"
         },
         {
+          "id": 3,
+          "nom": "khadija",
+          "prenom": "chaar",
+          "date naissance": "2003-01-01",
+          "adresse": "sokra",
+          "email": "yosr@yahoo.com"
+        },
+        {
           "id": 1,
+          "nom": "",
+          "datenaissance": null,
+          "adresse": "",
+          "email": ""
+        },
+        {
+          "id": 4,
           "nom": "",
           "datenaissance": null,
           "adresse": "",
@@ -156,6 +195,14 @@
       "nom": "khadija",
       "prenom": "chaar",
       "datenaissance": "2003-01-01",
+      "adresse": "sokra",
+      "email": "yosr@yahoo.com"
+    },
+    {
+      "id": 4,
+      "nom": "salah",
+      "prenom": "jmel",
+      "date naissance": "2001-01-01",
       "adresse": "sokra",
       "email": "yosr@yahoo.com"
     }
