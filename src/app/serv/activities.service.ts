@@ -75,9 +75,7 @@ export class ActivitiesService {
   //     map(activite => activite.participants)
   //   );
   // }
-  // addParticipant(nouveauParticipant: Personne): void {
-  //   this.participants.push(nouveauParticipant);
-  // }
+
     
   // activites: Activite[] = [
   //   new Activite(1,"Action 'RotaKids'", 10, new Date("2023-01-01"), new Date("2023-01-01"),'action sociale', 20, [new Personne('mohamed',563235)],"assets/images/rotakidspeiture.jpg","assets/images/rotakidsjouerenfants.jpg","","",""),
