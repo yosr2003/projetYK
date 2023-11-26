@@ -3,7 +3,7 @@
     {
       "id": 1,
       "titre": " Action 'RotaKids' ",
-      "nbPart": 2,
+      "nbPart": 1,
       "dateDebut": "2023-11-20",
       "dateFin": "2023-11-29",
       "categorie": "action sociale",
@@ -16,14 +16,6 @@
           "datenaissance": "2001-01-01",
           "adresse": "Centre ville",
           "email": "Molka@yahoo.com"
-        },
-        {
-          "cin": 12341234,
-          "nom": "Salah",
-          "prenom": "Jmel",
-          "datenaissance": "2001-01-01",
-          "adresse": "lac1",
-          "email": "salah@yahoo.com"
         }
       ],
       "lieu": "sokra-chotrana1",
@@ -207,12 +199,6 @@
       "nom": "Khadija",
       "prenom": "Chaar",
       "act": "uiu"
-    },
-    {
-      "id": 12341234,
-      "nom": "Salah",
-      "prenom": "Jmel",
-      "act": " Action 'RotaKids' "
     }
   ]
 }

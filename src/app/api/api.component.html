@@ -1,0 +1,66 @@
+<div class="container mt-4">
+    <div class="form-group">
+      <label for="dataType">Choisissez le type de données :</label>
+      <select id="dataType" [(ngModel)]="selectedDataType" class="form-control">
+        <option value="character">Personnage</option>
+        <option value="episode">Épisode</option>
+        <option value="location">Localisation</option>
+      </select>
+    </div>
+  
+    <div *ngIf="selectedDataType === 'character'" class="mt-3">
+      <div class="card">
+        <div class="card-header">
+          <h4>Choisissez un personnage :</h4>
+        </div>
+        <div class="card-body">
+          <select id="characters" [(ngModel)]="selectedCharacterId" (change)="loadCharacterDetails()" class="form-control">
+            <option *ngFor="let character of characters" [value]="character.id">{{ character.name }}</option>
+          </select>
+        </div>
+        <div *ngIf="selectedCharacter" class="mt-3">
+          <img [src]="selectedCharacter.image" alt="{{ selectedCharacter.name }}" class="img-fluid" style="border-radius: 50px; margin-left: 460px;">
+          <h3 style="margin-left: 500px;">{{ selectedCharacter.name }}</h3>
+          <p style="margin-left: 500px;"><strong>Status:</strong> {{ selectedCharacter.status }}</p>
+          <p style="margin-left: 500px;"><strong>Species:</strong> {{ selectedCharacter.species }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="selectedDataType === 'episode'" class="mt-3">
+      <div class="card">
+        <div class="card-header">
+          <h4>Choisissez un épisode :</h4>
+        </div>
+        <div class="card-body">
+          <select id="episodes" [(ngModel)]="selectedEpisodeId" (change)="loadEpisodeDetails()" class="form-control">
+            <option *ngFor="let episode of episodes" [value]="episode.id">{{ episode.name }} - {{ episode.episode }}</option>
+          </select>
+        </div>
+        <div *ngIf="selectedEpisode" class="mt-3">
+          <p><strong>Name:</strong> {{ selectedEpisode.name }}</p>
+          <p><strong>Episode:</strong> {{ selectedEpisode.episode }}</p>
+          <!-- Ajoutez d'autres propriétés d'épisode au besoin -->
+        </div>
+      </div>
+    </div>
+  
+    <div *ngIf="selectedDataType === 'location'" class="mt-3">
+      <div class="card">
+        <div class="card-header">
+          <h4>Choisissez une localisation :</h4>
+        </div>
+        <div class="card-body">
+          <select id="locations" [(ngModel)]="selectedLocationId" (change)="loadLocationDetails()" class="form-control">
+            <option *ngFor="let location of locations" [value]="location.id">{{ location.name }}</option>
+          </select>
+        </div>
+        <div *ngIf="selectedLocation" class="mt-3">
+          <p><strong>Name:</strong> {{ selectedLocation.name }}</p>
+          <p><strong>Type:</strong> {{ selectedLocation.type }}</p>
+          <p><strong>Dimension:</strong> {{ selectedLocation.dimension }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -18,7 +18,7 @@ export class ConnexionComponent implements OnInit {
   ngOnInit(): void {
     this.formAdmin = this.fb.nonNullable.group({
       login: ['', Validators.required],
-      motpasse: ['', Validators.required],
+      motpasse: ['', Validators.required,Validators.minLength(5)],
     });
 
     // Récupérer les données depuis le serveur au chargement du composant
@@ -51,5 +51,11 @@ export class ConnexionComponent implements OnInit {
         }
       }
     })
+  }
+  get mdp(){
+    return this.formAdmin.get("motpasse");
+  }
+  get login(){
+    return this.formAdmin.get("login");
   }
 }

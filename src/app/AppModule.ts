@@ -35,6 +35,8 @@ import { LkolComponent } from './lkol/lkol.component';
 import { BackoffComponent } from './backoff/backoff.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { ProfilComponent } from './profil/profil.component';
+import { YosrkhadijaPipe } from './yosrkhadija.pipe';
+import { ApiComponent } from './api/api.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { ProfilComponent } from './profil/profil.component';
     BackoffComponent,
    AuthentificationComponent,
    ServicesComponent,
-   ProfilComponent
+   ProfilComponent,
+   YosrkhadijaPipe,
+   ApiComponent
 
  
   ],
