@@ -53,7 +53,7 @@ export class ActivitiesService {
       map((activites) => activites.filter((act) => act.categorie === categorie))
     );
   }
-  patchProduit(id:number, data:any):Observable<Activite>{
+  patchActivite(id:number, data:any):Observable<Activite>{
     return this.http.patch<Activite>(URL+"/"+ id, data);
     }
 

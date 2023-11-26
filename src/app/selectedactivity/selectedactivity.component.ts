@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Activite } from '../classes/activite';
 import { ActivitiesService } from '../serv/activities.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Personne } from '../classes/personne';
 
 @Component({
@@ -12,8 +12,8 @@ import { Personne } from '../classes/personne';
 })
 export class SelectedactivityComponent implements OnInit {
   part:boolean=false;
-  myDate = new Date();
   Members:Personne[]=[];
+  p!:Personne;
   Activite2!:Activite;
   id!:number;
   parts:Personne[]=[];
@@ -37,54 +37,65 @@ export class SelectedactivityComponent implements OnInit {
         }
     )
     this.actform=this.fb.group({
-      id:[null],
-      nom:[''],
-      penom:[''],
+      cin:[null,[Validators.required, Validators.pattern('[0-9]{8}'), Validators.min(0)]],
+      nom:['',[Validators.required,Validators.pattern('[A-Z][a-zA-Z]+$')]],
+      prenom:['',[Validators.required,Validators.pattern('[A-Z][a-zA-Z]+$')]],
       dateN:[],
       adrs:[''],
-      email:['']
+      email:['',[Validators.required, Validators.email]]
 
     })
 
   }
+  get Cin(){return this.actform.get('cin');}
+  get Nom(){return this.actform.get('nom');}
+  get Prenom(){return this.actform.get('prenom');}
+  get email(){return this.actform.get('email');}
+  isValidCin(){
+    return this.Cin?.errors?.['pattern']&&this.Cin?.dirty;
+  }
+
+  isValidNom(){
+    return this.Nom?.errors?.['pattern']&&this.Nom?.dirty;
+  }
+  isValidPrenom(){
+    return this.Prenom?.errors?.['pattern']&&this.Prenom?.dirty;
+  }
+  
+  onResetForm(){
+    this.actform.reset();
+  
+  }
   participer(){
   this.part=!this.part;
   }
-  verif1():boolean{
-    for(let i=0;i<this.parts.length;i++){
-      if(this.parts[i].id==this.actform.get("id")?.value){
+  verif(pers:Personne[]):boolean{
+    for(let i=0;i<pers.length;i++){
+      if(pers[i].cin==this.actform.get("cin")?.value){
+        this.p=new Personne(this.actform.get("cin")?.value,pers[i].nom,pers[i].prenom,pers[i].datenaissance,pers[i].adresse,pers[i].email);
         return true
       }
     }
     return false
   }
-  verif2():boolean{
-    for(let i=0;i<this.Members.length;i++){
-      if(this.Members[i].id==this.actform.get("id")?.value){
-        return true
-      }
-    }
-    return false
-  }
-  onSubmitForm(nb:number,disp:boolean){
-    if(this.verif1()){
+  onSubmitForm(disp:boolean){
+    if(this.verif(this.parts)){
       alert('vous avez deja participe a cette activite')
-    }else if (!this.verif2()){
+    }else if (!this.verif(this.Members)){
       alert('vous netes pas un membre')
     }else{
-          nb=nb+1;
-         this.actServ.patchProduit(this.id,{nbPart:nb}).subscribe(
-          data => this.Activite2.nbPart= this.Activite2.nbPart+1
-        )
-        let p=new Personne(this.actform.get("id")?.value,this.actform.get("nom")?.value,this.actform.get("prenom")?.value,this.actform.get("dateN")?.value,this.actform.get("adrs")?.value,this.actform.get("email")?.value);
-        this.Activite2.participants.push(p);
+        this.Activite2.nbPart++;
         this.actServ.updateActivite(this.id,this.Activite2).subscribe (
-        data => this.parts.push(p)
+          data => console.log(data))
+        // let p=new Personne(this.actform.get("cin")?.value,this.actform.get("nom")?.value,this.actform.get("prenom")?.value,this.actform.get("dateN")?.value,this.actform.get("adrs")?.value,this.actform.get("email")?.value);
+        this.Activite2.participants.push(this.p);
+        this.actServ.updateActivite(this.id,this.Activite2).subscribe (
+        data => this.parts.push(this.p)
         )
 
-      if(this.Activite2.capacite==nb){
+      if(this.Activite2.capacite==this.Activite2.nbPart){
             disp=!disp;
-            this.actServ.patchProduit(this.id,{disponiblite:disp}).subscribe(
+            this.actServ.patchActivite(this.id,{disponiblite:disp}).subscribe(
              data => this.Activite2.disponiblite=! this.Activite2.disponiblite
            )
          }

@@ -31,21 +31,15 @@
 
 <body>
 
-    <header>
+    <header >
         <div class="logo">
             <a href="#"><img src="assets/images/logowhite.png" alt="" width="20px" height="100px" ></a>
         </div>
-
-        <nav>
-            <ul>
-                <!-- <li><a href="#">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#contact">Contact</a></li> -->
-            </ul>
-        </nav>
+        <div>
+            <app-hamburger ></app-hamburger>
+        </div>
     </header>
-<!-- <div *ngIf="activity" > -->
+
     
     <div class="content">
         <h1 style="color: aliceblue; font-size: 60px;">{{Activite2.titre}}</h1> <br>
@@ -76,8 +70,8 @@
                     <label>{{Activite2.description}}</label>
                     <label>{{Activite2.nbPart}}/</label>
                     <label>{{Activite2.capacite}}</label>
-                    <label>{{myDate|date:'yyyy/MM/dd'}}</label>
-                    <button [disabled]="!Activite2.disponiblite" (click)="participer()">Participer</button>
+                    <!-- <label>{{myDate|date:'yyyy/MM/dd'}}</label> -->
+                    <button [disabled]="!Activite2.disponiblite" (click)="participer()"class="btn btn-warning">Participer</button>
                 </div>
             </div>
             <div class="frappucino-coffees">
@@ -92,39 +86,71 @@
     </div>
 
     <div class="menu" id="menu">
-      <div class="menu-content"  *ngIf="part">
-        <form [formGroup]="actform" (ngSubmit)="onSubmitForm(Activite2.nbPart,Activite2.disponiblite)">
-          <div>
-                <label for="">id:</label>
-                <input type="number" class="form-control" name="" id="" formControlName="id">
-          </div>
-          <div>
-            <label for="">nom:</label>
-            <input type="text" class="form-control" name="" id="" formControlName="nom">
-          </div>
-          <div>
-            <label for="">prenom:</label>
-            <input type="text" class="form-control" name="" id="" formControlName="prenom">
-          </div>
-          <div>
-            <label for="">date de naissance:</label>
-            <input type="date" class="form-control" name="" id="" formControlName="dateN">
-          </div>
-          <div>
-            <label for="">adresse:</label>
-            <input type="text" class="form-control" name="" id="" formControlName="adrs">
-          </div>
-          <div>
-            <label for="">email:</label>
-            <input type="email" class="form-control" name="" id="" formControlName="email">
-          </div>
-          <input type="submit" class="btn btn-success" value=" send " >
-         
-        </form>
+      <div class="menu-content"  *ngIf="part&& Activite2.capacite>Activite2.nbPart">
+        <div class="container mt-4 bg-light p-4">
+        <form [formGroup]="actform" (ngSubmit)="onSubmitForm(Activite2.disponiblite)" class="mt-4">
+            <div class="form-group">
+              <label for="cin">Cin:</label>
+              <input type="number" class="form-control" id="cin" formControlName="cin">
+              <div *ngIf="isValidCin()" class="alert alert-warning mt-2">
+                La Cin doit contenir 8 chiffres
+              </div>
+              <div *ngIf="Cin?.errors?.['required'] && Cin?.dirty" class="alert alert-danger mt-2">
+                Cin est obligatoire
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="nom">Nom:</label>
+              <input type="text" class="form-control" id="nom" formControlName="nom">
+              <div *ngIf="isValidNom()" class="alert alert-warning mt-2">
+                Le nom doit commencer par une majuscule et être suivi d'au moins une lettre
+              </div>
+              <div *ngIf="Nom?.errors?.['required'] && Nom?.dirty" class="alert alert-danger mt-2">
+                Le nom est obligatoire
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="prenom">Prenom:</label>
+              <input type="text" class="form-control" id="prenom" formControlName="prenom">
+              <div *ngIf="isValidPrenom()" class="alert alert-warning mt-2">
+                Le Prenom doit commencer par une majuscule et être suivi d'au moins une lettre
+              </div>
+              <div *ngIf="Prenom?.errors?.['required'] && Prenom?.dirty" class="alert alert-danger mt-2">
+                Le Prenom est obligatoire
+              </div>
+            </div>
+          
+            <div class="form-group">
+              <label for="dateN">Date de naissance:</label>
+              <input type="date" class="form-control" id="dateN" formControlName="dateN">
+            </div>
+          
+            <div class="form-group">
+              <label for="adrs">Adresse:</label>
+              <input type="text" class="form-control" id="adrs" formControlName="adrs">
+            </div>
+          
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+              <div *ngIf="email?.errors?.['required'] && email?.dirty" class="alert alert-danger mt-2">
+                L'email est obligatoire
+              </div>
+              <div *ngIf="email?.errors?.['email'] && email?.dirty" class="alert alert-warning mt-2">
+                L'email suit le format d'un e-mail
+              </div>
+            </div>
+          
+            <button type="submit" class="btn btn-success" [disabled]="actform.invalid">Envoyer</button>
+            <button type="button" (click)="onResetForm()" class="btn btn-warning ml-2">Effacer</button>
+          </form>
+        </div>
       </div>
     </div>
 
-<!-- </div> -->
+
 
 
 
@@ -140,10 +166,10 @@
                 <a href="#"><i class="fa-brands fa-youtube"></i></a>
             </div>
             <div class="copyright">
-                <!-- <label>Copyright &copy; 2022</label> -->
+                
             </div>
             <div class="brand">
-                <label>Want to <span>join us ?</span> <input type="checkbox"></label>
+               
             </div>
         </div>
     </div>

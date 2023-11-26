@@ -8,14 +8,10 @@ import { ActivitiesService } from '../serv/activities.service';
   templateUrl: './uneactivite.component.html',
   styleUrls: ['./uneactivite.component.css']
 })
-export class UneactiviteComponent implements OnInit {
-  constructor(private router:Router,private act:ActivitiesService){}
-  ngOnInit(): void {
-    
-  //   this.act.patchProduit(this.id,{disponiblite:disp}).subscribe(
-  //   data => this.Activite2.disponiblite=! this.Activite2.disponiblite
-  // )
-  }
+export class UneactiviteComponent  {
+  
+  constructor(private router:Router){}
+
 
   @Input() active!:Activite;
   @Input() index!: number;
