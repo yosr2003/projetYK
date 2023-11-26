@@ -6,6 +6,22 @@
     <title>Modern Admin Dashboard</title>
   
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <style>
+        .bg-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    background-size: cover;
+    background-image: url("assets/images/user.jpg");
+}
+.bg-img1 {
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    background-size: cover;
+    background-image: url("assets/images/event.jpg");
+}
+    </style>
 </head>
 <body>     
      <form action="" [formGroup]="actForm" (ngSubmit)="Ajouter()"> 
@@ -17,8 +33,8 @@
         
         <div class="side-content">
             <div class="profile" >
-                <div class="profile-img bg-img" style="background-image: url()"></div>
-                <h4>Rotaract</h4>
+                <div class="profile-img bg-img" style="background-image: url(assets/images/user.jpg)"></div>
+                <h4>Admin</h4>
             
             </div>
 
@@ -85,11 +101,16 @@
                         <span class="notify">4</span>
                     </div>
                     
-                    <div class="notify-icon">
-                        <span class="las la-bell"></span>
+                    <div class="notify-icon" (click)="togglenotif()">
+                        <span class="las la-bell">{{notifications.length}}</span>
                         <span class="notify">3</span>
                     </div>
-                  
+                   <div *ngIf="bell">
+                    <div *ngFor="let n of notifications">
+                         {{n.nom}} {{n.prenom}} vient de participer a l'activite {{n.act}}
+                    </div>
+
+                   </div>
                     
                     
                     <div class="user">
@@ -214,7 +235,7 @@
                                    
                                     <td>
                                         <div class="client">
-                                            <div class="client-img bg-img"><img src="" alt=""></div>
+                                            <div class=" client-img bg-img1"><img [src]="" alt=""></div>
 
                                             <div class="client-info">
                                                 <h4>{{a.titre}}</h4>
@@ -448,7 +469,7 @@
                                         
                                          <td>
                                              <div class="client">
-                                                 <div class="client-img bg-img"><img src="" alt=""></div>
+                                                 <div class="client-img bg-img"><img src="" alt="" width="20px" ></div>
      
                                                  <div class="client-info">
                                                      <h4>{{m.nom}}</h4>

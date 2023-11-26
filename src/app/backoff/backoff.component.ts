@@ -6,6 +6,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Observable } from 'rxjs';
 import { Personne } from '../classes/personne';
 import { AdminService } from '../serv/admin.service';
+import { Notif } from '../classes/notif';
 
 @Component({
   selector: 'app-backoff',
@@ -13,6 +14,8 @@ import { AdminService } from '../serv/admin.service';
   styleUrls: ['./backoff.component.css']
 })
 export class BackoffComponent {
+bell:boolean=false;
+notifications:Notif[]=[];
 AjoutAutres!: boolean;
 afficheAutres() {
   if (this.AjoutAutres==true){
@@ -77,7 +80,10 @@ ngOnInit(): void {
 
     })
 
-
+  /*notifs*/
+  this.ActService.getNotifs().subscribe(
+    data=>this.notifications=data
+  )
    
   }
  
@@ -102,14 +108,22 @@ else{
 Ajouter() {
  
   this.ActService.addActivite(this.actForm.value as Activite).subscribe(
-  data => console.log(data),
+  data => this.lesActivites.push(data),
   error => console.error('Erreur lors de l\'ajout d\'activité:', error)
   )
   }
 
-  onSupprimer(id:number){
-    this.ActService.deleteActivite(id).subscribe();
-    }
+  onSupprimer(id: number) {
+    this.ActService.deleteActivite(id).subscribe({
+      next: data => {
+        // Filtrer lesActivites pour exclure l'élément avec l'ID correspondant
+        this.lesActivites = this.lesActivites.filter(activite => activite.id !== id);
+      },
+      error: error => console.error('Erreur lors de la suppression d\'activité:', error)
+    });
+  }
+  
+  
 
    
   public onActiviteChange(event: any) {
@@ -168,7 +182,7 @@ Ajouter() {
               // Appelez votre service pour mettre à jour sur le serveur
               this.ActService.UpdateActivity(this.actForm.value as Activite).subscribe({
                 next: (response) => {
-                  console.log('Modification réussie');
+                  this.lesActivites.push(response),
                   this.isEditMode = false;
                   // this.editedActivity = null;
                 },
@@ -203,6 +217,10 @@ afficherSearch() {
   logout(){
     alert("deconnexion");
     this.adminService.logout();
+  }
+
+  togglenotif(){
+    this.bell=!this.bell;
   }
 
 }

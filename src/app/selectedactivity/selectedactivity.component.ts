@@ -4,6 +4,7 @@ import { Activite } from '../classes/activite';
 import { ActivitiesService } from '../serv/activities.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Personne } from '../classes/personne';
+import { Notif } from '../classes/notif';
 
 @Component({
   selector: 'app-selectedactivity',
@@ -99,7 +100,8 @@ export class SelectedactivityComponent implements OnInit {
              data => this.Activite2.disponiblite=! this.Activite2.disponiblite
            )
          }
-
+      let notif=new Notif(this.p.nom,this.p.prenom,this.Activite2.titre);
+      this.actServ.addNotif(notif).subscribe()
     }
  }
 

@@ -5,14 +5,23 @@ import { Activite } from '../classes/activite';
 import { Personne } from '../classes/personne';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
+import { Notif } from '../classes/notif';
 const URL='http://localhost:3000/activites';
 const URLMembers='http://localhost:3000/lesmembres';
+const URLnotifs="http://localhost:3000/lesnotifs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivitiesService {
   constructor(private http:HttpClient){}
+
+  getNotifs():Observable<Notif[]>{
+    return this.http.get<Notif[]>(URLnotifs);
+  }
+  addNotif(n:Notif):Observable<Notif>{
+    return this.http.post<Notif>(URLnotifs,n);
+  }
   getActivites():Observable<Activite[]>{
     return this.http.get<Activite[]>(URL);
   }
